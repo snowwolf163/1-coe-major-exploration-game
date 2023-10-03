@@ -26,7 +26,7 @@ The `LICENSE` is currently CC0 and will need to be changed by the end of the yea
 
 ## Grading
 
-Throughout the year, everyone on the team will be evaluated on their writing (individually). Instructors will review writing assignments mostly in GitHub Pull Requests (PRs).
+Throughout the year, everyone on the team will be evaluated on their writing (individually). Instructors can review writing assignments through GitHub Pull Requests (PRs).
 
 Writing assignments will include:
 
