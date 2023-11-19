@@ -76,7 +76,6 @@ class Player(Deck):
                 drawDeck.top = top
             card = drawDeck.removeCard(1)
             self.insertCard(card)
-            print(len(drawDeck))
     
     #Print the cards in the hand, indexed by 1
     def printHand(self):
