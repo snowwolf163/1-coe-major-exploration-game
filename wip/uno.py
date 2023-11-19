@@ -122,7 +122,7 @@ class Player(Deck):
     #Run the turn for a given player
     def playerTurn(self,drawDeck,nextEffect):
     
-        #If a skip turn effect is in play, skip the player's turn
+        #If a skip turn effect is in play, skip the player's turn and draw cards
         if nextEffect == "Skip":
             print(f"{self.name}'s turn was skipped by a skip card!\n")
             return (False, "0")
@@ -134,14 +134,17 @@ class Player(Deck):
             print(f"{self.name} lost their turn and must draw four cards!\n")
             self.draw(4, drawDeck)
             return (False, "0")
+
         #If not a human player, run a different version of the turn without user input
         if self.isPlayer == False:
             return self.aiTurn(drawDeck)
+        
+        #Inform the player of the card they are playing against
         print(f"The card on top of the pile is a {drawDeck.color} {drawDeck.top.value}")
         print(f"You have {self.cardCount} cards.")
         self.printHand()
         chosenCard = self.getChoice(drawDeck.top, drawDeck)
-        #If player was made to draw the card and card didn't match, move to next player's turn
+        #If player was made to draw a card and card didn't match, move to next player's turn
         if chosenCard[0] == False:
             print("The card could not be played, ending your turn.\n")
             return (False, "0")
@@ -174,10 +177,13 @@ class Player(Deck):
         
     def aiTurn(self, drawDeck):
         print(f"{self.name} has {self.cardCount} cards!")
+        
+        #If the ai can play a card, do so
         matchFound,chosenCard = self.hasMatch(drawDeck)
         if matchFound == False:
             print(f"{self.name} had to draw a card!")
             self.draw(1,drawDeck)    
+            matchFound,chosenCard = self.hasMatch(drawDeck)
         if matchFound == True:
             chosenCard = self.removeCard(chosenCard)
             drawDeck.insertCard(chosenCard)
