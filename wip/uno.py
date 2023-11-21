@@ -1,5 +1,8 @@
 import random
 
+types = ["Red", "Blue", "Yellow", "Green"]
+typesCount = len(types)
+
 class Card():
     def __init__(self, type, value):
         self.type = type
@@ -11,7 +14,7 @@ class Card():
 class Deck(list):
     def __init__(self):
         #Initialize the deck
-        for type in ["Red", "Blue", "Yellow", "Green"]:
+        for type in types:
             #Create 0 value cards
             self.append(Card(type,"0"))
             #Create 2 of each card numbered 1-9
@@ -24,12 +27,12 @@ class Deck(list):
         #Add the Wild cards
         self += [Card("Wild", "Draw Four")] * 4
         self += [Card("Wild", "Card")] * 4
-        self.cardCount = 108
+        self.cardCount = len(self)
         random.shuffle(self)
 
     def grabTop(self):
         for i in range(self.cardCount):
-            if self[i].type in ["Red", "Blue", "Yellow", "Green"]:
+            if self[i].type in types:
                 self.top = self.removeCard(i+1)
                 self.color = self.top.type
                 return
@@ -142,15 +145,15 @@ class Player(Deck):
         if chosenCard[1].type == "Wild":
             while True:
                 print(f"You must pick which color to set the top of the pile to.")
-                for i in range(4):
-                    print(f"{i+1}: {['Red', 'Blue', 'Yellow', 'Green'][i]}")
+                for i in range(typesCount):
+                    print(f"{i+1}: {types[i]}")
                 wildColor = input("Pick the number corresponding to the color:")
                 try: wildColor = int(wildColor)
                 except:
                     print("That was not an integer.")
                     continue
-                if wildColor < 0 or wildColor > 4:
-                    print("That was not a number 1-4.")
+                if wildColor < 0 or wildColor > typesCount:
+                    print(f"That was not a number 1-{typesCount}.")
                     continue
                 drawDeck.color = ["Red", "Blue", "Yellow", "Green"][wildColor-1]
                 break
@@ -178,7 +181,7 @@ class Player(Deck):
             drawDeck.insertCard(chosenCard)
             print(f"{self.name} played the {chosenCard.type} {chosenCard.value} card.")
             if chosenCard.type == "Wild":
-                wildColor = ["Red", "Blue", "Yellow", "Green"][random.randrange(4)]
+                wildColor = types[random.randrange(typesCount)]
                 drawDeck.color = wildColor
                 print(f"{self.name} set the color on top of the pile to {wildColor}.")
             if self.cardCount == 1:
