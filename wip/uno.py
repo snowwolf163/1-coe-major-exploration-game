@@ -1,11 +1,9 @@
 import random
 
-
 class Card():
-    def __init__(self, type, value, isWild):
+    def __init__(self, type, value):
         self.type = type
         self.value = value
-        self.wild = isWild
 
     def printCard(self):
         print(self.type, self.value)
@@ -15,27 +13,26 @@ class Deck(list):
         #Initialize the deck
         for type in ["Red", "Blue", "Yellow", "Green"]:
             #Create 0 value cards
-            self.append(Card(type,"0",False))
+            self.append(Card(type,"0"))
             #Create 2 of each card numbered 1-9
             for n in range(1,10):
-                self += [Card(type,str(n),False)] * 2
+                self += [Card(type,str(n))] * 2
             #Create two of each action card of each color
-            self += [Card(type,"Reverse",False)] * 2
-            self += [Card(type,"Draw Two", False)] * 2
-            self += [Card(type,"Skip", False)] * 2
+            self += [Card(type,"Reverse")] * 2
+            self += [Card(type,"Draw Two")] * 2
+            self += [Card(type,"Skip")] * 2
         #Add the Wild cards
-        self += [Card("Wild", "Draw Four", True)] * 4
-        self += [Card("Wild", "Card", True)] * 4
+        self += [Card("Wild", "Draw Four")] * 4
+        self += [Card("Wild", "Card")] * 4
         self.cardCount = 108
         random.shuffle(self)
 
     def grabTop(self):
-        i = 0
-        for x in self:
-            i += 1
-            if x.type in ["Red", "Blue", "Yellow", "Green"]:
-                self.top = self.removeCard(i)
+        for i in range(self.cardCount):
+            if self[i].type in ["Red", "Blue", "Yellow", "Green"]:
+                self.top = self.removeCard(i+1)
                 self.color = self.top.type
+                return
 
     def insertCard(self,card):
         self.append(card)
@@ -80,7 +77,7 @@ class Player(Deck):
     #Check if the hand has a card that can be played on the top of the used card pile
     def hasMatch(self, drawDeck):
         for i in range(self.cardCount):
-            if self[i].type == drawDeck.color or self[i].value == drawDeck.top.value or self[i].wild == True:
+            if self[i].type == drawDeck.color or self[i].value == drawDeck.top.value or self[i].type == "Wild":
                 return (True, i+1)
         return (False, drawDeck.top)
     
@@ -90,7 +87,7 @@ class Player(Deck):
             print("You do not have any playable cards. Draw one card.")
             self.draw(1,drawDeck)
             print(f"You drew a {self[-1].type} {self[-1].value} card.")
-            if self[-1].type == drawDeck.color or self[-1].value == top.value or self[-1].wild == True:
+            if self[-1].type == drawDeck.color or self[-1].value == top.value or self[-1].type == "Wild":
                 return (True, self.removeCard(0))
             return (False, self[-1])
 
@@ -105,7 +102,7 @@ class Player(Deck):
                 print(f"You must choose the index of the card from 1 to {self.cardCount}") 
                 continue
             comp = self[chosenCard-1]
-            if comp.type != drawDeck.color and comp.value != top.value and not comp.wild:
+            if comp.type != drawDeck.color and comp.value != top.value and comp.type != "Wild":
                 print(f"You must use a card that matches in color, value, or a wild card.")
                 continue
             chosenCard = self.removeCard(chosenCard)
@@ -142,7 +139,7 @@ class Player(Deck):
             return (False, "0")
         drawDeck.insertCard(chosenCard[1])
         print(f"You played the {chosenCard[1].type} {chosenCard[1].value} card.\n")
-        if chosenCard[1].wild == True:
+        if chosenCard[1].type == "Wild":
             while True:
                 print(f"You must pick which color to set the top of the pile to.")
                 for i in range(4):
@@ -180,7 +177,7 @@ class Player(Deck):
             chosenCard = self.removeCard(chosenCard)
             drawDeck.insertCard(chosenCard)
             print(f"{self.name} played the {chosenCard.type} {chosenCard.value} card.")
-            if chosenCard.wild == True:
+            if chosenCard.type == "Wild":
                 wildColor = ["Red", "Blue", "Yellow", "Green"][random.randrange(4)]
                 drawDeck.color = wildColor
                 print(f"{self.name} set the color on top of the pile to {wildColor}.")
@@ -199,6 +196,7 @@ def main():
 
     playerName = input("Please type in your name: ")
     players = [Player(True,playerName)]
+    players[0].draw(7,drawDeck)
     #Get the number of opponents, validate the input
     while True:
         print("Input the number of opponents to play against, up to 3.")
@@ -214,14 +212,13 @@ def main():
         break
     for x in range(opps):
         players.append(Player(False,f"Bot{x+1}"))
-    for player in players:    
-        player.draw(7,drawDeck)
+        players[x+1].draw(7,drawDeck)
     nextEffect = "0"
     while True: 
         i = 0
         while i != opps+1:
             gameWon, nextEffect = players[i].playerTurn(drawDeck, nextEffect)
-            if gameWon == True:
+            if gameWon:
                 playAgain = input("Type 'y' to play again, anything else to exit.")
                 if str(playAgain) == "y":
                     main()
