@@ -155,7 +155,7 @@ class Player(Deck):
                 if wildColor < 0 or wildColor > typesCount:
                     print(f"That was not a number 1-{typesCount}.")
                     continue
-                drawDeck.color = ["Red", "Blue", "Yellow", "Green"][wildColor-1]
+                drawDeck.color = types[wildColor-1]
                 break
         if self.cardCount == 1:
             #Call uno
