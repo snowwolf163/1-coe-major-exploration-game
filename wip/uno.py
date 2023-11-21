@@ -6,10 +6,9 @@ class Card():
         self.type = type
         self.value = value
         self.wild = isWild
-        return
+
     def printCard(self):
         print(self.type, self.value)
-        return
 
 class Deck(list):
     def __init__(self):
@@ -28,19 +27,15 @@ class Deck(list):
         self += [Card("Wild", "Draw Four", True)] * 4
         self += [Card("Wild", "Card", True)] * 4
         self.cardCount = 108
-        self.shuffle()
-        return
+        random.shuffle(self)
 
     def grabTop(self):
-        for i in range(self.cardCount):
-            if self[i].type in ["Red", "Blue", "Yellow", "Green"]:
-                self.top = self.removeCard(i+1)
+        i = 0
+        for x in self:
+            i += 1
+            if x.type in ["Red", "Blue", "Yellow", "Green"]:
+                self.top = self.removeCard(i)
                 self.color = self.top.type
-                return
-    
-    def shuffle(self):
-        random.shuffle(self)
-        return
 
     def insertCard(self,card):
         self.append(card)
@@ -48,14 +43,13 @@ class Deck(list):
         self.top = card
         if self.top.type != "Wild":
             self.color = self.top.type
-        return
 
     def removeCard(self,n):
         removed = self.pop(n-1)
         self.cardCount -= 1
         if self.cardCount == 0:
             self.cardCount = len(self)
-            self.shuffle()
+            random.shuffle(self)
         return removed
 
 #Inherit deck as player to represent the player's hand
@@ -64,7 +58,6 @@ class Player(Deck):
         self.cardCount = 0
         self.isPlayer = human
         self.name = name
-        return
     
     #Draws n cards from the drawing deck
     def draw(self, n, drawDeck):
@@ -83,7 +76,6 @@ class Player(Deck):
         for i in range(self.cardCount):
             print(f"{i+1}:", end="")
             self[i].printCard()
-        return
     
     #Check if the hand has a card that can be played on the top of the used card pile
     def hasMatch(self, drawDeck):
@@ -225,7 +217,7 @@ def main():
     for player in players:    
         player.draw(7,drawDeck)
     nextEffect = "0"
-    while True:
+    while True: 
         i = 0
         while i != opps+1:
             gameWon, nextEffect = players[i].playerTurn(drawDeck, nextEffect)
