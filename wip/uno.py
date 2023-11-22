@@ -8,9 +8,6 @@ class Card():
         self.type = type
         self.value = value
 
-    def printCard(self):
-        print(self.type, self.value)
-
 class Deck(list):
     def __init__(self):
         #Initialize the deck
