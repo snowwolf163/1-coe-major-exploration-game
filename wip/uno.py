@@ -54,10 +54,11 @@ class Deck(list):
 
 #Inherit deck as player to represent the player's hand
 class Player(Deck):
-    def __init__(self, human, name):
+    def __init__(self, human, name, drawDeck):
         self.cardCount = 0
         self.isPlayer = human
         self.name = name
+        self.draw(7,drawDeck)
     
     #Draws n cards from the drawing deck
     def draw(self, n, drawDeck):
@@ -198,8 +199,7 @@ def main():
     drawDeck.grabTop()
 
     playerName = input("Please type in your name: ")
-    players = [Player(True,playerName)]
-    players[0].draw(7,drawDeck)
+    players = [Player(True,playerName, drawDeck)]
     #Get the number of opponents, validate the input
     while True:
         print("Input the number of opponents to play against, up to 3.")
@@ -214,8 +214,7 @@ def main():
             continue
         break
     for x in range(opps):
-        players.append(Player(False,f"Bot{x+1}"))
-        players[x+1].draw(7,drawDeck)
+        players.append(Player(False,f"Bot{x+1}", drawDeck))
     nextEffect = "0"
     while True: 
         i = 0
