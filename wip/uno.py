@@ -75,8 +75,7 @@ class Player(Deck):
     def printHand(self):
         print(f"{self.name}'s Hand:")
         for i in range(self.cardCount):
-            print(f"{i+1}:", end="")
-            self[i].printCard()
+            print(f"{i+1}: {self[i].type} {self[i].value}")
     
     #Check if the hand has a card that can be played on the top of the used card pile
     def hasMatch(self, drawDeck):
@@ -161,7 +160,7 @@ class Player(Deck):
         if self.cardCount == 1:
             #Call uno
             print(f"{self.name}: One Card Left! Uno!\n")
-        if self.cardCount == 0:
+        if self.cardCount == 0: 
             #High value, proof-read finishing message
             print(f"congratulation! yo uare winree, {self.name}!\n")
             return (True, "0")
