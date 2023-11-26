@@ -12,18 +12,14 @@ class Deck(list):
     def __init__(self):
         #Initialize the deck
         for type in types:
-            #Create 0 value cards
+            #Create 0 cards and 2 sets of 1-9 cards
             self.append(Card(type,"0"))
-            #Create 2 of each card numbered 1-9
-            for n in range(1,10):
-                self += [Card(type,str(n))] * 2
+            for i in range(1,10):
+                self.extend([Card(type,str(i))] * 2)
             #Create two of each action card of each color
-            self += [Card(type,"Reverse")] * 2
-            self += [Card(type,"Draw Two")] * 2
-            self += [Card(type,"Skip")] * 2
+            self.extend([Card(type,"Reverse"), Card(type,"Draw Two"), Card(type,"Skip")] * 2)
         #Add the Wild cards
-        self += [Card("Wild", "Draw Four")] * 4
-        self += [Card("Wild", "Card")] * 4
+        self.extend([Card("Wild", "Draw Four"), Card("Wild", "Card")] * 4)
         self.cardCount = len(self)
         random.shuffle(self)
 
@@ -60,7 +56,7 @@ class Player(Deck):
     #Draws n cards from the drawing deck
     def draw(self, n, drawDeck):
         for i in range(n):
-            if len(drawDeck) == 0:
+            if not drawDeck:
                 print("Out of cards to draw from! Bringing in new deck...)")
                 top = drawDeck.top
                 drawDeck = Deck()
@@ -125,7 +121,7 @@ class Player(Deck):
             return (False, "0")
 
         #If not a human player, run a different version of the turn without user input
-        if self.isPlayer == False:
+        if not self.isPlayer:
             return self.aiTurn(drawDeck)
         
         #Inform the player of the card they are playing against
@@ -134,7 +130,7 @@ class Player(Deck):
         self.printHand()
         chosenCard = self.getChoice(drawDeck.top, drawDeck)
         #If player was made to draw a card and card didn't match, move to next player's turn
-        if chosenCard[0] == False:
+        if not chosenCard[0]:
             print("The card could not be played, ending your turn.\n")
             return (False, "0")
         drawDeck.insertCard(chosenCard[1])
