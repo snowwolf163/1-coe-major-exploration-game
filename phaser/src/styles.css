@@ -1,0 +1,67 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  color: #d73f09;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background-color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+header img {
+  max-height: 275px;
+  max-width: 275px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  background-color: #d73f09;
+  padding: 10px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  width: 100%;
+  height: 100%;
+  display: block;
+  text-align: center;
+  padding: 15px 0; /* Adjust padding for both top and bottom */
+}
+
+nav a:hover {
+  background-color: gray;
+}
+
+section {
+  padding: 20px;
+}
+
+script {
+  text-align: center; /* Center the script within its container */
+}
+
+section {
+  padding: 20px;
+  flex-grow: 1;
+}
+
+section .game {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Make the div take full height of its section */
+}
+
+section .game script {
+  text-align: center;
+}
