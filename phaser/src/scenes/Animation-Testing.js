@@ -2,11 +2,13 @@ import Phaser from "phaser";
 
 export default class Animation_Testing extends Phaser.Scene {
   preload() {
-    this.load.image("cardBack", "../../assets/cards/mushroom2.png");
+    this.load.image("card", "../../assets/cards/mushroom2.png");
     // ... Load other assets as needed
   }
 
   create() {
+    // DEALING CARDS //
+
     // Create a group for cards
     const cardsGroup = this.add.group();
 
@@ -15,11 +17,11 @@ export default class Animation_Testing extends Phaser.Scene {
     const initialY = this.cameras.main.height - 250; // Positioned 100 pixels above the bottom
 
     // Add card that always stays where stack is
-    const deckTop = this.add.image(initialX, initialY, "cardBack");
+    const deckTop = this.add.image(initialX, initialY, "card");
 
     // Add cards to the group and position them at the initial position
     for (let i = 0; i < 5; i++) {
-      const card = this.add.image(initialX, initialY, "cardBack");
+      const card = this.add.image(initialX, initialY, "card");
       cardsGroup.add(card);
     }
 
@@ -42,7 +44,7 @@ export default class Animation_Testing extends Phaser.Scene {
         onComplete: () => {
           // This callback ensures the deck looks like it's always there
           card.setVisible(false); // Hide the card after it lands
-          this.add.image(card.x, card.y, "cardBack"); // Add a new card back image at the same position
+          this.add.image(card.x, card.y, "card"); // Add a new card back image at the same position
         },
       });
     });

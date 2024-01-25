@@ -9,7 +9,7 @@ import Animation_Testing from "./scenes/Animation-Testing";
 const config = {
   width: 800,
   height: 500,
-  type: Phaser.AUTO, // this means phaser handles if webgl or canvas is used
+  type: Phaser.CANVAS, // this means phaser handles if webgl or canvas is used
   backgroundColor: "#7f7f7f",
   physics: {
     // this is set for pong purposes..
@@ -19,6 +19,11 @@ const config = {
     //   debug: true,
     // },
   },
+  // scene: {
+  //   preload: preload,
+  //   create: create,
+  //   update: update,
+  // },
 };
 
 const game = new Phaser.Game(config);
