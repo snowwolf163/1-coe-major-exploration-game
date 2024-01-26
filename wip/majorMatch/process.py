@@ -9,7 +9,7 @@ for i in range(len(majorData[:-1])):
         majorDataOut.append(majorData[i])
     else:
         majorDataOut.append(majorData[i].split(" ", 2))
-
+print("[")
 for i in range(0,len(majorDataOut),11):
     print("{")
     print(f'  "major": "{majorDataOut[i]}",')
@@ -22,4 +22,4 @@ for i in range(0,len(majorDataOut),11):
         print('    }')
     print("  ]")
     print("}")
-
+print("]")
