@@ -16,9 +16,9 @@ for i in range(0,len(majorDataOut),11):
     print(f'  "classCards": [')
     for j in range(1,11):
         print('    {')
-        print(f'      "subject": {majorDataOut[i+j][0]}')
+        print(f'      "subject": "{majorDataOut[i+j][0]}"')
         print(f'      "courseNumber": {majorDataOut[i+j][1]}')
-        print(f'      "className": {majorDataOut[i+j][2]}')
+        print(f'      "className": "{majorDataOut[i+j][2]}"')
         print('    }')
     print("  ]")
     print("}")
