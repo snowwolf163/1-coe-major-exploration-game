@@ -1,0 +1,935 @@
+{
+  "major": "Architectural Engineering",
+  "classCards": [
+    {
+      "subject": ARE
+      "courseNumber": 311
+      "className": FLUID MECHANICS
+    }
+    {
+      "subject": ARE
+      "courseNumber": 341
+      "className": FUNDAMENTALS OF HEATING, VENTILATING, AND AIR CONDITIONING (HVAC)
+    }
+    {
+      "subject": ARE
+      "courseNumber": 361
+      "className": FUNDAMENTALS FOR LIGHTING DESIGN
+    }
+    {
+      "subject": ARE
+      "courseNumber": 310
+      "className": ARCHITECTURE STUDIO
+    }
+    {
+      "subject": CE
+      "courseNumber": 381
+      "className": STRUCTURAL THEORY I
+    }
+    {
+      "subject": ARE
+      "courseNumber": 451
+      "className": ADVANCED BUILDING CONSTRUCTION METHODS
+    }
+    {
+      "subject": ARE
+      "courseNumber": 461
+      "className": LIGHTING DESIGN FOR THE BUILT ENVIRONMENT 1
+    }
+    {
+      "subject": ARE
+      "courseNumber": 462
+      "className": LIGHTING DESIGN FOR THE BUILT ENVIRONMENT 1
+    }
+    {
+      "subject": ARE
+      "courseNumber": 418
+      "className": ARCHITECTURAL ENGINEERING PROFESSIONAL PRACTICE
+    }
+    {
+      "subject": ARE
+      "courseNumber": 419
+      "className": ARCHITECTURAL ENGINEERING DESIGN
+    }
+  ]
+}
+{
+  "major": "AI and Robotics",
+  "classCards": [
+    {
+      "subject": CS
+      "courseNumber": 331
+      "className": INTRODUCTION TO ARTIFICIAL INTELLIGENCE
+    }
+    {
+      "subject": MTH
+      "courseNumber": 341
+      "className":  LINEAR ALGEBRA I
+    }
+    {
+      "subject": MTH
+      "courseNumber": 342
+      "className":  LINEAR ALGEBRA II
+    }
+    {
+      "subject": ST
+      "courseNumber": 314
+      "className": INTRODUCTION TO STATISTICS FOR ENGINEERS
+    }
+    {
+      "subject": CS
+      "courseNumber": 321
+      "className": INTRODUCTION TO THEORY OF COMPUTATION
+    }
+    {
+      "subject": CS
+      "courseNumber": 434
+      "className":  MACHINE LEARNING AND DATA MINING 
+    }
+    {
+      "subject": ROB
+      "courseNumber": 421
+      "className":  APPLIED ROBOTICS 
+    }
+    {
+      "subject": ROB
+      "courseNumber": 456
+      "className":  INTELLIGENT ROBOTICS
+    }
+    {
+      "subject": CS
+      "courseNumber": 492
+      "className": MOBILE SOFTWARE DEVELOPMENT
+    }
+    {
+      "subject": ST
+      "courseNumber": 443
+      "className":  APPLIED STOCHASTIC MODELS 
+    }
+  ]
+}
+{
+  "major": "Bioengineering",
+  "classCards": [
+    {
+      "subject": BI
+      "courseNumber": 231
+      "className":  INTRODUCTION TO HUMAN ANATOMY AND PHYSIOLOGY
+    }
+    {
+      "subject": BIOE
+      "courseNumber": 240
+      "className": A PRACTICAL INTRODUCTION TO BIOMEDICAL SIGNALS AND SENSORS
+    }
+    {
+      "subject": CBEE
+      "courseNumber": 212
+      "className": ENERGY BALANCES
+    }
+    {
+      "subject": BIOE
+      "courseNumber": 311
+      "className": BIOENGINEERING THERMODYNAMICS
+    }
+    {
+      "subject": BIOE
+      "courseNumber": 331
+      "className": BIOTRANSPORT I
+    }
+    {
+      "subject": BIOE
+      "courseNumber": 340
+      "className": BIOMEDICAL ENGINEERING PRINCIPLES
+    }
+    {
+      "subject": BIOE
+      "courseNumber": 350
+      "className": MATHEMATICAL AND NUMERICAL METHODS FOR BIOENGINEERS
+    }
+    {
+      "subject": BIOE
+      "courseNumber": 420
+      "className": SOCIAL JUSTICE, ETHICS, AND ENGINEERING
+    }
+    {
+      "subject": BIOE
+      "courseNumber": 457
+      "className": BIOREACTORS
+    }
+    {
+      "subject": BIOE
+      "courseNumber": 465
+      "className": BIOMEDICAL IMAGE PROCESSING
+    }
+  ]
+}
+{
+  "major": "Chemical Engineering ",
+  "classCards": [
+    {
+      "subject": CH
+      "courseNumber": 231
+      "className": GENERAL CHEMISTRY
+    }
+    {
+      "subject": CH
+      "courseNumber": 232
+      "className": GENERAL CHEMISTRY
+    }
+    {
+      "subject": CH
+      "courseNumber": 233
+      "className": GENERAL CHEMISTRY
+    }
+    {
+      "subject": CH
+      "courseNumber": 331
+      "className": ORGANIC CHEMISTRY
+    }
+    {
+      "subject": CHE
+      "courseNumber": 312
+      "className": CHEMICAL ENGINEERING THERMODYNAMICS
+    }
+    {
+      "subject": CHE
+      "courseNumber": 33x
+      "className": TRANSPORT PHENOMENA 1-3
+    }
+    {
+      "subject": CHE
+      "courseNumber": 361
+      "className": CHEMICAL PROCESS DYNAMICS AND SIMULATION
+    }
+    {
+      "subject": CHE
+      "courseNumber": 461
+      "className": PROCESS CONTROL
+    }
+    {
+      "subject": CHE
+      "courseNumber": 411
+      "className": MASS TRANSFER OPERATIONS
+    }
+    {
+      "subject": CHE
+      "courseNumber": 443
+      "className": CHEMICAL REACTION ENGINEERING
+    }
+  ]
+}
+{
+  "major": "Civil Engineering",
+  "classCards": [
+    {
+      "subject": CE
+      "courseNumber": 202
+      "className": CIVIL ENGINEERING: GEOSPATIAL INFORMATION AND GIS
+    }
+    {
+      "subject": CCE
+      "courseNumber": 201
+      "className": CIVIL AND CONSTRUCTION ENGINEERING GRAPHICS AND DESIGN 
+    }
+    {
+      "subject": CCE
+      "courseNumber": 207
+      "className": CCE SEMINAR
+    }
+    {
+      "subject": CE
+      "courseNumber": 311
+      "className":  FLUID MECHANICS
+    }
+    {
+      "subject": CE
+      "courseNumber": 313
+      "className": HYDRAULIC ENGINEERING
+    }
+    {
+      "subject": CE
+      "courseNumber": 361
+      "className": SURVEYING THEORY
+    }
+    {
+      "subject": CE
+      "courseNumber": 37x
+      "className": GEOTECHNICAL ENGINEERING 1-2
+    }
+    {
+      "subject": CE
+      "courseNumber": 412
+      "className": HYDROLOGY
+    }
+    {
+      "subject": CE
+      "courseNumber": 481
+      "className": REINFORCED CONCRETE I
+    }
+    {
+      "subject": CE
+      "courseNumber": 491
+      "className": TRANSPORTATION ENGINEERING
+    }
+  ]
+}
+{
+  "major": "Computer Science",
+  "classCards": [
+    {
+      "subject": CS
+      "courseNumber": 261
+      "className": DATA STRUCTURES
+    }
+    {
+      "subject": CS
+      "courseNumber": 290
+      "className": WEB DEVELOPMENT
+    }
+    {
+      "subject": MTH
+      "courseNumber": 231
+      "className": ELEMENTS OF DISCRETE MATHEMATICS
+    }
+    {
+      "subject": CS
+      "courseNumber": 36x
+      "className": SOFTWARE ENGINEERING 1-2
+    }
+    {
+      "subject": CS
+      "courseNumber": 381
+      "className": PROGRAMMING LANGUAGE FUNDAMENTALS
+    }
+    {
+      "subject": CS
+      "courseNumber": 391
+      "className": SOCIAL AND ETHICAL ISSUES IN COMPUTER SCIENCE
+    }
+    {
+      "subject": CS
+      "courseNumber": 444
+      "className": OPERATING SYSTEMS II
+    }
+    {
+      "subject": CS
+      "courseNumber": 46x
+      "className": SENIOR SOFTWARE ENGINEERING PROJECT 1-3
+    }
+    {
+      "subject": CS
+      "courseNumber": 374
+      "className": OPERATING SYSTEMS I
+    }
+    {
+      "subject": CS
+      "courseNumber": 475
+      "className": INTRODUCTION TO PARALLEL PROGRAMMING
+    }
+  ]
+}
+{
+  "major": "Construction Management",
+  "classCards": [
+    {
+      "subject": CCE
+      "courseNumber": 201
+      "className": CIVIL AND CONSTRUCTION ENGINEERING GRAPHICS AND DESIGN
+    }
+    {
+      "subject": CCE
+      "courseNumber": 203
+      "className": INTRODUCTION TO VIRTUAL DESIGN AND CONSTRUCTION
+    }
+    {
+      "subject": ECON
+      "courseNumber": 201
+      "className": INTRODUCTION TO MICROECONOMICS
+    }
+    {
+      "subject": CCE
+      "courseNumber": 321
+      "className": CIVIL AND CONSTRUCTION ENGINEERING MATERIALS
+    }
+    {
+      "subject": CEM
+      "courseNumber": 341
+      "className": CONSTRUCTION ESTIMATING I
+    }
+    {
+      "subject": CEM
+      "courseNumber": 381
+      "className": STRUCTURES I
+    }
+    {
+      "subject": CEM
+      "courseNumber": 441
+      "className": HEAVY CIVIL CONSTRUCTION MANAGEMENT
+    }
+    {
+      "subject": CEM
+      "courseNumber": 471
+      "className": ELECTRICAL FACILITIES
+    }
+    {
+      "subject": CE
+      "courseNumber": 427
+      "className": TEMPORARY CONSTRUCTION STRUCTURES
+    }
+    {
+      "subject": CEM
+      "courseNumber": 472
+      "className": MECHANICAL FACILITIES
+    }
+  ]
+}
+{
+  "major": "Cybersecurity",
+  "classCards": [
+    {
+      "subject": CS
+      "courseNumber": 370
+      "className": INTRODUCTION TO SECURITY
+    }
+    {
+      "subject": CS
+      "courseNumber": 372
+      "className": INTRODUCTION TO COMPUTER NETWORKS
+    }
+    {
+      "subject": CS
+      "courseNumber": 427
+      "className": CRYPTOGRAPHY
+    }
+    {
+      "subject": CS
+      "courseNumber": 473
+      "className": INTRODUCTION TO DIGITAL FORENSICS
+    }
+    {
+      "subject": CS
+      "courseNumber": 478
+      "className": NETWORK SECURITY
+    }
+    {
+      "subject": CS
+      "courseNumber": 312
+      "className": SYSTEM ADMINISTRATION
+    }
+    {
+      "subject": CS
+      "courseNumber": 325
+      "className": ANALYSIS OF ALGORITHMS
+    }
+    {
+      "subject": CS
+      "courseNumber": 352
+      "className": INTRODUCTION TO USABILITY ENGINEERING
+    }
+    {
+      "subject": CS
+      "courseNumber": 42x
+      "className": CYBERSECURITY PRACTICUM
+    }
+    {
+      "subject": CS
+      "courseNumber": 499
+      "className": EMPIRICAL COMPUTER SECURITY
+    }
+  ]
+}
+{
+  "major": "Ecological Engineering",
+  "classCards": [
+    {
+      "subject": BEE
+      "courseNumber": 221
+      "className": FUNDAMENTALS OF ECOLOGICAL ENGINEERING
+    }
+    {
+      "subject": BEE
+      "courseNumber": 222
+      "className": ECOLOGICAL ENGINEERING COMPUTATION
+    }
+    {
+      "subject": BEE
+      "courseNumber": 270
+      "className": ECOLOGY FOR ENGINEERS
+    }
+    {
+      "subject": BEE
+      "courseNumber": 322
+      "className": ECOLOGICAL ENGINEERING THERMODYNAMICS AND TRANSFER PROCESS
+    }
+    {
+      "subject": BEE
+      "courseNumber": 361
+      "className": ECOLOGICAL ENGINEERING LABORATORY
+    }
+    {
+      "subject": BEE
+      "courseNumber": 362
+      "className": ECOLOGICAL ENGINEERING MICROBIAL PROCESSES
+    }
+    {
+      "subject": BEE
+      "courseNumber": 468
+      "className": BIOREMEDIATION ENGINEERING
+    }
+    {
+      "subject": BEE
+      "courseNumber": 415
+      "className": PROFESSIONAL DEVELOPMENT
+    }
+    {
+      "subject": BEE
+      "courseNumber": 48x
+      "className": ECOLOGICAL ENGINEERING DESIGN 1-3
+    }
+    {
+      "subject": BEE
+      "courseNumber": 312
+      "className": ECOHYDRAULICS
+    }
+  ]
+}
+{
+  "major": "Electrical Computer Engineering",
+  "classCards": [
+    {
+      "subject": ECE
+      "courseNumber": 271
+      "className": DIGITAL LOGIC DESIGN
+    }
+    {
+      "subject": ENGR
+      "courseNumber": 20x
+      "className": ELECTRICAL FUNDAMENTALS 1-3
+    }
+    {
+      "subject": PH
+      "courseNumber": 21x
+      "className": GENERAL PHYSICS WITH CALCULUS
+    }
+    {
+      "subject": ECE
+      "courseNumber": 322
+      "className": ELECTRONICS I
+    }
+    {
+      "subject": ECE
+      "courseNumber": 341
+      "className":  JUNIOR DESIGN I
+    }
+    {
+      "subject": ECE
+      "courseNumber": 351
+      "className": SIGNALS AND SYSTEMS I
+    }
+    {
+      "subject": ECE
+      "courseNumber": 391
+      "className": TRANSMISSION LINES
+    }
+    {
+      "subject": PH
+      "courseNumber": 481
+      "className": PHYSICAL OPTICS
+    }
+    {
+      "subject": CHE
+      "courseNumber": 444
+      "className": THIN FILM MATERIALS PROCESSING
+    }
+    {
+      "subject": CHE
+      "courseNumber": 499
+      "className": SPECIAL TOPICS (Conventional Alternative Energy Systems)
+    }
+  ]
+}
+{
+  "major": "Energy Systems Engineering",
+  "classCards": [
+    {
+      "subject": ESE
+      "courseNumber": 330
+      "className": MODELING AND ANALYSIS OF DYNAMIC SYSTEMS
+    }
+    {
+      "subject": ESE
+      "courseNumber": 355
+      "className": ENERGY REGULATION
+    }
+    {
+      "subject": ESE
+      "courseNumber": 360
+      "className": ENERGY CONSUMPTION ANALYSIS
+    }
+    {
+      "subject": ENGR
+      "courseNumber": 390
+      "className": ENGINEERING ECONOMY
+    }
+    {
+      "subject": BA
+      "courseNumber": 357
+      "className": OPERATIONS AND SUPPLY CHAIN MANAGEMENT
+    }
+    {
+      "subject": ESE
+      "courseNumber": 430
+      "className": FEEDBACK CONTROL SYSTEMS
+    }
+    {
+      "subject": ESE
+      "courseNumber": 450
+      "className": ENERGY GENERATION SYSTEMS
+    }
+    {
+      "subject": ESE
+      "courseNumber": 470
+      "className": ENERGY DISTRIBUTION SYSTEMS
+    }
+    {
+      "subject": ESE
+      "courseNumber": 471
+      "className": ENERGY STORAGE SYSTEMS
+    }
+    {
+      "subject": ESE
+      "courseNumber": 497
+      "className": MIME CAPSTONE DESIGN
+    }
+  ]
+}
+{
+  "major": "Environmental Engineering",
+  "classCards": [
+    {
+      "subject": GEO
+      "courseNumber": 221
+      "className": ENVIRONMENTAL GEOLOGY
+    }
+    {
+      "subject": MB
+      "courseNumber": 230
+      "className": *INTRODUCTORY MICROBIOLOGY
+    }
+    {
+      "subject": ENVE
+      "courseNumber": 322
+      "className": FUNDAMENTALS OF ENVIRONMENTAL ENGINEERING
+    }
+    {
+      "subject": CHE
+      "courseNumber": 311
+      "className": THERMODYNAMICS
+    }
+    {
+      "subject": CE
+      "courseNumber": 313
+      "className": HYDRAULIC ENGINEERING
+    }
+    {
+      "subject": ENVE
+      "courseNumber": 415
+      "className": ENVIRONMENTAL ENGINEERING LABORATORY
+    }
+    {
+      "subject": ENVE
+      "courseNumber": 421
+      "className": DRINKING WATER TREATMENT PROCESSES
+    }
+    {
+      "subject": ENVE
+      "courseNumber": 422
+      "className": WASTEWATER TREATMENT PROCESSES
+    }
+    {
+      "subject": ENVE
+      "courseNumber": 425
+      "className": AIR POLLUTION CONTROL
+    }
+    {
+      "subject": ENVE
+      "courseNumber": 431
+      "className": FATE AND TRANSPORT OF CHEMICALS IN ENVIRONMENTAL SYSTEMS
+    }
+  ]
+}
+{
+  "major": "Industrial Engineering",
+  "classCards": [
+    {
+      "subject": ENGR
+      "courseNumber": 211
+      "className": STATICS
+    }
+    {
+      "subject": ENGR
+      "courseNumber": 212
+      "className": DYNAMICS
+    }
+    {
+      "subject": IE
+      "courseNumber": 212
+      "className":  COMPUTATIONAL METHODS FOR INDUSTRIAL ENGINEERING
+    }
+    {
+      "subject": IE
+      "courseNumber": 355
+      "className":  QUANTITATIVE METHODS FOR SYSTEM ANALYSIS AND IMPROVEMENT
+    }
+    {
+      "subject": IE
+      "courseNumber": 366
+      "className":  WORK SYSTEMS ENGINEERING
+    }
+    {
+      "subject": IE
+      "courseNumber": 367
+      "className": PRODUCTION PLANNING AND CONTROL
+    }
+    {
+      "subject": IE
+      "courseNumber": 412
+      "className": INFORMATION SYSTEMS ENGINEERING
+    }
+    {
+      "subject": IE
+      "courseNumber": 415
+      "className": SIMULATION AND DECISION SUPPORT SYSTEMS
+    }
+    {
+      "subject": IE
+      "courseNumber": 425
+      "className": INDUSTRIAL SYSTEMS OPTIMIZATION
+    }
+    {
+      "subject": IE
+      "courseNumber": 426
+      "className": STOCHASTIC MODELS OF INDUSTRIAL SYSTEMS
+    }
+  ]
+}
+{
+  "major": "Manufacturing Engineering",
+  "classCards": [
+    {
+      "subject": ME
+      "courseNumber": 311/NSE
+      "className": 311 INTRODUCTION TO THERMAL-FLUID SCIENCES
+    }
+    {
+      "subject": ME
+      "courseNumber": 382
+      "className": INTRODUCTION TO DESIGN
+    }
+    {
+      "subject": MFGE
+      "courseNumber": 336
+      "className": PRODUCTION ENGINEERING
+    }
+    {
+      "subject": MFGE
+      "courseNumber": 337
+      "className": MATERIALS AND MANUFACTURING PROCESSES
+    }
+    {
+      "subject": MFGE
+      "courseNumber": 499
+      "className": INTRO TO 3D PRINTING
+    }
+    {
+      "subject": MFGE
+      "courseNumber": 413
+      "className": COMPUTER AIDED DESIGN AND MANUFACTURING
+    }
+    {
+      "subject": MFGE
+      "courseNumber": 436
+      "className": LEAN MANUFACTURING SYSTEMS ENGINEERING
+    }
+    {
+      "subject": MFGE
+      "courseNumber": 437
+      "className": COMPUTER CONTROL OF MANUFACTURING PROCESSES
+    }
+    {
+      "subject": MFGE
+      "courseNumber": 438
+      "className": COMPOSITES MANUFACTURING
+    }
+    {
+      "subject": MFGE
+      "courseNumber": 441
+      "className": DIGITAL CONTROL OF MECHATRONICS SYSTEMS
+    }
+  ]
+}
+{
+  "major": "Mechanical Engineering",
+  "classCards": [
+    {
+      "subject": ME
+      "courseNumber": 203
+      "className": COMPUTATIONAL METHODS FOR ENGINEERING
+    }
+    {
+      "subject": ME
+      "courseNumber": 217
+      "className": MECHANICAL ENGINEERING DYNAMICS
+    }
+    {
+      "subject": ENGR
+      "courseNumber": 248
+      "className": ENGINEERING GRAPHICS AND 3-D MODELING
+    }
+    {
+      "subject": ME
+      "courseNumber": 310
+      "className": INTRODUCTION TO THERMODYNAMICS
+    }
+    {
+      "subject": ME
+      "courseNumber": 330
+      "className": INTRODUCTION TO FLUID MECHANICS AND HEAT TRANSFER
+    }
+    {
+      "subject": ME
+      "courseNumber": 373
+      "className": MECHANICAL ENGINEERING METHODS
+    }
+    {
+      "subject": ME
+      "courseNumber": 412
+      "className": DESIGN OF MECHANISMS
+    }
+    {
+      "subject": ME
+      "courseNumber": 414
+      "className": DESIGN FOR MANUFACTURING
+    }
+    {
+      "subject": ME
+      "courseNumber": 420
+      "className": APPLIED STRESS ANALYSIS
+    }
+    {
+      "subject": ME
+      "courseNumber": 424
+      "className": FINITE ELEMENT ANALYSIS OF MECHANICAL COMPONENTS
+    }
+  ]
+}
+{
+  "major": "Nuclear Engineering",
+  "classCards": [
+    {
+      "subject": NSE
+      "courseNumber": 233
+      "className": MATHEMATICAL METHODS FOR NSE
+    }
+    {
+      "subject": NSE
+      "courseNumber": 234
+      "className": NUCLEAR AND RADIATION PHYSICS I
+    }
+    {
+      "subject": NSE
+      "courseNumber": 236
+      "className": NUCLEAR RADIATION DETECTION AND INSTRUMENTATION
+    }
+    {
+      "subject": NSE
+      "courseNumber": 311
+      "className": INTRODUCTION TO THERMAL-FLUID SCIENCES
+    }
+    {
+      "subject": NSE
+      "courseNumber": 331
+      "className": FLUID MECHANICS
+    }
+    {
+      "subject": NSE
+      "courseNumber": 332
+      "className": HEAT TRANSFER
+    }
+    {
+      "subject": NSE
+      "courseNumber": 451
+      "className": NEUTRONIC ANALYSIS I
+    }
+    {
+      "subject": NSE
+      "courseNumber": 457
+      "className": NUCLEAR REACTOR LABORATORY
+    }
+    {
+      "subject": NSE
+      "courseNumber": 467
+      "className": NUCLEAR REACTOR THERMAL HYDRAULICS
+    }
+    {
+      "subject": NSE
+      "courseNumber": 481
+      "className": RADIATION PROTECTION
+    }
+  ]
+}
+{
+  "major": "Radiation Health Physics",
+  "classCards": [
+    {
+      "subject": PH
+      "courseNumber": 201
+      "className": GENERAL PHYSICS
+    }
+    {
+      "subject": HHS
+      "courseNumber": 231
+      "className": LIFETIME FITNESS FOR HEALTH
+    }
+    {
+      "subject": BI
+      "courseNumber": 221
+      "className":  PRINCIPLES OF BIOLOGY: CELLS
+    }
+    {
+      "subject": NSE
+      "courseNumber": 319
+      "className": SOCIETAL ASPECTS OF NUCLEAR TECHNOLOGY
+    }
+    {
+      "subject": H
+      "courseNumber": 310
+      "className":  HEALTH FIELD EXPERIENCES
+    }
+    {
+      "subject": NSE
+      "courseNumber": 415
+      "className": NUCLEAR RULES AND REGULATIONS
+    }
+    {
+      "subject": NSE
+      "courseNumber": 435
+      "className": RADIATION SHIELDING AND EXTERNAL DOSIMETRY
+    }
+    {
+      "subject": NSE
+      "courseNumber": 483
+      "className": RADIATION BIOLOGY
+    }
+    {
+      "subject": NSE
+      "courseNumber": 474
+      "className": ^NUCLEAR SYSTEMS DESIGN I
+    }
+    {
+      "subject": NSE
+      "courseNumber": 488
+      "className": RADIOECOLOGY
+    }
+  ]
+}
