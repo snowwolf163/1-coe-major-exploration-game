@@ -1,6 +1,9 @@
 import Phaser from "phaser";
 
 export default class Animation_Testing extends Phaser.Scene {
+  // constructor() {
+  //   super({ key: "animation testing" });
+  // }
   preload() {
     this.load.image("card", "../../assets/cards/mushroom2.png");
     // ... Load other assets as needed
