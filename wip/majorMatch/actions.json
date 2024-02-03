@@ -2,41 +2,41 @@
 {
   "card": "A001",
   "name": "Nothing Personnel Kid",
-  "description": "Make the next player draw 2 more cards (stackable).", 
+  "description": "Make the next player draw 2 more cards (stackable)."
 },
 {
   "card": "A002",
   "name": "Freak You, Specifically",
-  "description": "Make the next player draw 4 more cards (stackable).",
+  "description": "Make the next player draw 4 more cards (stackable)."
 },
 {
   "card": "A003",
   "name": "The Captain Sink with The Ship",
-  "description": "Make the last player draw the same amount of cards as you.",
+  "description": "Make the last player draw the same amount of cards as you."
 },
 {
   "card": "A004",
   "name": "You’re Going Nowhere",
-  "description": "Make the player with the lowest number of cards draw 2 more cards.",
+  "description": "Make the player with the lowest number of cards draw 2 more cards."
 },
 {
   "card": "A005",
   "name": "You’re Going Nowhere",
-  "description": "Make the player with the lowest number of cards draw 2 more cards.",
+  "description": "Make the player with the lowest number of cards draw 2 more cards."
 },
 {
   "card": "A006",
   "name": "Your Cards Are Mine",
-  "description": "Switch Cards with another player.",
+  "description": "Switch Cards with another player."
 },
 {
   "card": "A007",
   "name": "You Shall Not Play",
-  "description": "Skip the next player’s turn.",
+  "description": "Skip the next player’s turn."
 },
 {
   "card": "A008",
   "name": "No, You!",
-  "description": "Reflect the action onto the next person.",
+  "description": "Reflect the action onto the next person."
 }
 ]
