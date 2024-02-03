@@ -1,0 +1,32 @@
+[
+{
+  "card": "E001",
+  "name": "Greedy Hand",
+  "description": "Immediately draw 2 more cards."
+},
+{
+  "card": "E002",
+  "name": "Today Weather is Nice",
+  "description": "Change your major."
+},
+{
+  "card": "E003",
+  "name": "What Goes Around, Comes Around",
+  "description": "Every player switches all their cards with the next player in the order of play."
+},
+{
+  "card": "E004",
+  "name": "The Lucky of The Draw",
+  "description": "Every player either has to drop all their cards related to their major or vice versa in a 50/50 coin flip."
+},
+{
+  "card": "E005",
+  "name": "Not on My Watch",
+  "description": "Every player draws 2 more cards. The player with the lowest number of cards has to draw 3 more cards."
+},
+{
+  "card": "E006",
+  "name": "Tides Change",
+  "description": "Reverse the direction of the order of play."
+}
+]
