@@ -1,7 +1,16 @@
 //TODO: (things to make this animtaion testing into the final game)
 // - card images will need to be turned into card objects, all references to them will need to be adjusted for this
+// - ((maybes)) if background is clicked any selected card should be deselected ??
 
 import Phaser from "phaser";
+
+// Card Object class //TODO: this is unused so far
+class Card extends Phaser.GameObjects.Image {
+  constructor(scene, x, y, texture) {
+    super(scene, x, y, texture);
+    this.isSelected = false;
+  }
+}
 
 export default class Animation_Testing extends Phaser.Scene {
   preload() {
@@ -37,6 +46,7 @@ export default class Animation_Testing extends Phaser.Scene {
     // Add cards to the group and position them at the initial position
     for (let i = 0; i < 5; i++) {
       const card = this.add.image(initialX, initialY, "card").setInteractive();
+      // const card = new Card(this, initialX, initialY, "card").setInteractive;
       cardsGroup.add(card);
 
       // Set up the click event for each card
@@ -62,15 +72,16 @@ export default class Animation_Testing extends Phaser.Scene {
         y: handY,
         duration: duration,
         delay: index * delay,
-        onComplete: () => {
-          // This callback ensures the deck looks like it's always there
-          // card.setVisible(false); // Hide the card after it lands //DO NOT UNCOMMENT THIS
-          // this.add.image(card.x, card.y, "card"); // Add a new card back image at the same position
-        },
+        onComplete: () => {},
       });
     });
 
     // HIGHLIGHTING A CARD ON CLICK //
+
+    // Manage Shelf consts for selected cards
+    const scaleMultiplier = 3; // Adjust this value to increase or decrease the scale
+    const highlightX = 700;
+    const highlightY = 250;
 
     // Handle the card click logic
     this.handleCardClick = (clickedCard, playerHand) => {
@@ -78,6 +89,7 @@ export default class Animation_Testing extends Phaser.Scene {
       if (clickedCard.isSelected) {
         clickedCard.y += 20;
         clickedCard.isSelected = false;
+        // shelfCard.destroy;
       } else {
         // Deselect any other selected cards
         playerHand.children.each((card) => {
@@ -90,8 +102,17 @@ export default class Animation_Testing extends Phaser.Scene {
         // Move the clicked card up and mark it as selected
         clickedCard.y -= 20;
         clickedCard.isSelected = true;
+
+        // TODO: finish this logic (deselect = no more shelf card, playing a card = no more shelf card etc.)
+        // Copy card onto highlighted "shelf" card
+        const shelfCard = this.add
+          .image(highlightX, highlightY, "card")
+          .setInteractive()
+          .setScale(scaleMultiplier);
       }
     };
+
+    // TODO: Handle selected card also appearing in "shelf"
 
     // "DISCARDING" AKA PLAYING A CARD //
 
@@ -112,12 +133,53 @@ export default class Animation_Testing extends Phaser.Scene {
 
     // Handle card discard logic
     this.handleDiscardClick = (playerHand) => {
-      //TODO: add discard logic: find selected card, move card to pile, remove from hand, draw new card, deselect played card
-
       // Find selected card in playerhand
       playerHand.children.each((card) => {
         if (card.isSelected) {
           console.log(card);
+
+          // Get this cards x and y for replacement later
+          var discardedCardX = card.x;
+          var discardedCardY = card.y + 20; // Add 20 because when selected it gives Y -20
+
+          // Deselect selected card
+          card.isSelected = false;
+
+          // Remove card from playerhand and move it to discard pile
+          this.tweens.add({
+            targets: card,
+            x: discardX, // Adjust the x-position for each card to spread them out a bit
+            y: discardY,
+            duration: duration,
+            onComplete: () => {
+              playerHand.remove(card);
+              card.setDepth(1); // Ensure it's above the shelf
+
+              // TODO: save the card data here and update the discard pile placeholder to reflect the last played card to
+              // "simulate" it's still there while not messing with the interactivity
+              card.destroy();
+
+              // Draw new card and add to playerhand
+              const newCard = this.add
+                .image(initialX, initialY, "card")
+                .setInteractive();
+              cardsGroup.add(newCard);
+
+              // TODO: ANIMATION DEMO PURPOSES ONLY, UNO ONLY DRAWS A CARD IF NO CARD CAN BE PLAYED //
+              // New cards animate into players hand using discarded cards x and y
+              this.tweens.add({
+                targets: newCard,
+                x: discardedCardX,
+                y: discardedCardY,
+                duration: duration,
+                onComplete: () => {
+                  console.log("new card added to hand");
+                },
+              });
+            },
+          });
+
+          return;
         }
       });
     };
