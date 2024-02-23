@@ -33,7 +33,7 @@ io.on("connection", function (socket) {
   }
 
   socket.on("dealDeck", function (socketId) {
-    players[socketId].inDeck = shuffle(["placeHolderCard"]);
+    players[socketId].inDeck = shuffle(["placeHolderCard"]); //add more cards here eventually
     console.log(players);
     if (Object.keys(players).length < 2) return;
     io.emit("changeGameState", "Initializing");
