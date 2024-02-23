@@ -10,6 +10,7 @@ let config = {
     width: 1200,
     height: 1000,
   },
+  parent: "game-container", // Specify the parent container
   scene: [Menu, Game],
 };
 

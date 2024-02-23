@@ -80,3 +80,8 @@ section .game script {
   padding: 20px; /* Add padding on the left and right */
   margin: 20px;
 }
+
+/* Add some spacing around the game container */
+#game-container-wrapper {
+  margin: 10px;
+}
