@@ -1,5 +1,0 @@
-#App startup instructions
-
-1. navigate to phaser folder
-2. install dependencies "npm install"
-3. "npm start" to run the site locally
