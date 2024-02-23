@@ -1,4 +1,5 @@
 import random
+import time
 import json
 majors = []
 majorsCount = 4
@@ -19,10 +20,9 @@ class Deck(list):
         for major in majors:
             for card in major['classCards']:
                 self.extend(2 * [Card(major['major'], card['className'] + " " + card['subject'], card['courseNumber'])])
-            #Create two of each action card of each color
-            self.extend([Card(major['major'],"Reverse",0), Card(major['major'],"Homework",0), Card(major['major'],"Sick Day",0)] * 2)
-        #Add the Wild cards
-        self.extend([Card(major['major'], "Group Project",0)] * 4)
+            #Create two of each action card of each color but four Overload cards, use value 9 to represent major force changing cards of Major/Overload
+            self.extend([Card(major['major'],"Reverse",0), Card(major['major'],"Load",0), Card(major['major'],"Debt",0), Card(major['major'], "Major", 9)] * 2)
+        self.extend([Card(major['major'], "Overload",9)] * 4)
         self.cardCount = len(self)
         random.shuffle(self)
 
@@ -71,15 +71,15 @@ class Player(Deck):
     def printHand(self):
         print(f"{self.name}'s Hand:")
         for i in range(self.cardCount):
-            if self[i].value != 000:
-                print(f"{i+1}: {self[i].major} {self[i].name} {self[i].value}")
-            else:
-                print(f"{i+1}: {self[i].major} {self[i].name}")
+                if self[i].value in [0,9]:
+                    print(f"{i+1}: {self[i].major} {self[i].name}")
+                else:
+                    print(f"{i+1}: {self[i].major} {self[i].name} {self[i].value}")
     
     #Check if the hand has a card that can be played on the top of the used card pile
     def hasMatch(self, drawDeck):
         for i in range(self.cardCount):
-            if self[i].major == drawDeck.major or firstDigit(self[i].value) == firstDigit(drawDeck.top.value):
+            if self[i].major == drawDeck.major or firstDigit(self[i].value) == firstDigit(drawDeck.top.value) and self[i].value != 0 or self[i].value == 9:
                 return (True, i+1)
         return (False, drawDeck.top)
     
@@ -88,42 +88,41 @@ class Player(Deck):
         if self.hasMatch(drawDeck)[0] == False:
             print("You do not have any playable cards. Draw one card.")
             self.draw(1,drawDeck)
-            print(f"You drew a {self[-1].major} {self[-1].name} {self[-1].value} card.")
-            if self[-1].major == drawDeck.major or firstDigit(self[-1].value) == firstDigit(top.value):
+            if self[-1].value in [0,9]:
+                print(f"You drew a {self[-1].major} {self[-1].name} card.")
+            else:
+                print(f"You drew a {self[-1].major} {self[-1].name} {self[-1].value} card.")
+            if self[-1].major == drawDeck.major or firstDigit(self[-1].value) == firstDigit(top.value) and top.value != 0 or firstDigit(self[-1].value) == 9:
                 return (True, self.removeCard(0))
             return (False, self[-1])
 
         while True:
-            chosenCard = input("Please type in the number of the card you wish to play: ")
+            chosenCardIndex = input("Please type in the number of the card you wish to play: ")
             try: 
-                chosenCard = int(chosenCard)
+                chosenCardIndex = int(chosenCardIndex)
             except:
                 print(f"You must choose the index of the card from 1 to {self.cardCount}")
                 continue
-            if 0 > chosenCard or chosenCard > self.cardCount:
+            if 0 > chosenCardIndex or chosenCardIndex > self.cardCount:
                 print(f"You must choose the index of the card from 1 to {self.cardCount}") 
                 continue
-            comp = self[chosenCard-1]
-            if comp.major != drawDeck.major and firstDigit(comp.value) != firstDigit(top.value):
-                print(f"You must use a card that matches in major or class level.")
+            comp = self[chosenCardIndex-1]
+            if comp.major != drawDeck.major and (firstDigit(comp.value) != firstDigit(top.value) or top.value == 0) and firstDigit(comp.value) != 9:
+                print(f"You must use a card that matches in major or class level, or use a Major/Overload type card to forcibly change the major in play.")
                 continue
-            chosenCard = self.removeCard(chosenCard)
+            chosenCard = self.removeCard(chosenCardIndex)
             return (True, chosenCard)
 
     #Run the turn for a given player
     def playerTurn(self,drawDeck,nextEffect):
     
         #If a skip turn effect is in play, skip the player's turn and draw cards
-        if nextEffect == "Sick Day":
-            print(f"{self.name} called in sick!\n")
+        if nextEffect == "Debt":
+            print(f"{self.name} missed class because they're taking care of too many financial issues!\n")
             return (False, "0")
-        if nextEffect == "Homework":
-            print(f"{self.name} got assigned homework and must draw two cards of work!\n")
-            self.draw(2, drawDeck)
-            return (False, "0")
-        if nextEffect == "Group Project":
-            print(f"{self.name} got stuck on a group project and must draw four cards of work!\n")
-            self.draw(4, drawDeck)
+        if nextEffect == "Load" or nextEffect == "Overload":
+            print(f"{self.name} got overloaded with too many projects and must draw one card of work!\n")
+            self.draw(1, drawDeck)
             return (False, "0")
 
         #If not a human player, run a different version of the turn without user input
@@ -131,7 +130,10 @@ class Player(Deck):
             return self.aiTurn(drawDeck)
         
         #Inform the player of the card they are playing against
-        print(f"The card on top of the pile is a {drawDeck.major} {drawDeck.top.name} {drawDeck.top.value} card.")
+        if drawDeck.top.value in [0,9]:
+            print(f"The card on top of the pile is a {drawDeck.major} {drawDeck.top.name} card.")
+        else:
+            print(f"The card on top of the pile is a {drawDeck.major} {drawDeck.top.name} {drawDeck.top.value} card.")
         print(f"You have {self.cardCount} cards.")
         self.printHand()
         chosenCard = self.getChoice(drawDeck.top, drawDeck)
@@ -140,27 +142,15 @@ class Player(Deck):
             print("The card could not be played, ending your turn.\n")
             return (False, "0")
         drawDeck.insertCard(chosenCard[1])
-        print(f"You played the {chosenCard[1].major} {chosenCard[1].name} {chosenCard[1].value} card.\n")
-        if chosenCard[1].major == "Wild":
-            while True:
-                print(f"You must pick which color to set the top of the pile to.")
-                for i in range(majorsCount):
-                    print(f"{i+1}: {majors[i]}")
-                wildColor = input("Pick the number corresponding to the major:")
-                try: wildColor = int(wildColor)
-                except:
-                    print("That was not an integer.")
-                    continue
-                if wildColor < 0 or wildColor > typesCount:
-                    print(f"That was not a number 1-{typesCount}.")
-                    continue
-                drawDeck.color = types[wildColor-1]
-                break
+        if chosenCard[1].value in [0,9]:
+            print(f"You played the {chosenCard[1].major} {chosenCard[1].name} card.\n")
+        else:
+            print(f"You played the {chosenCard[1].major} {chosenCard[1].name} {chosenCard[1].value} card.\n")
         if self.cardCount == 1:
             #Call uno
             print(f"{self.name}: One Card Left! OSU!\n")
         if self.cardCount == 0: 
-            #High value, proof-read finishing message
+            #Return congratulations message
             print(f"Congratulations, you won {self.name}!\n")
             return (True, "0")
         else:
@@ -178,18 +168,17 @@ class Player(Deck):
         if matchFound == True:
             chosenCard = self.removeCard(chosenCard)
             drawDeck.insertCard(chosenCard)
-            print(f"{self.name} played the {chosenCard.major} {chosenCard.name} {chosenCard.value} card.")
-            if chosenCard.major == "Wild":
-                wildColor = types[random.randrange(typesCount)]
-                drawDeck.major = wildColor
-                print(f"{self.name} set the card type on top of the pile to {wildColor}.")
+            if chosenCard.value in [0,9]:
+                print(f"{self.name} played the {chosenCard.major} {chosenCard.name} card.")
+            else:
+                print(f"{self.name} played the {chosenCard.major} {chosenCard.name} {chosenCard.value} card.")
             if self.cardCount == 1:
-                print(f"{self.name}: It's about to be over for you! OSU!\n")
+                print(f"{self.name}: 'It's about to be over for you! OSU!'\n")
             elif self.cardCount == 0:
                 print(f"{self.name} has won the game!\n")
                 return (True, "0")
         print("")
-        return (False, chosenCard.value)
+        return (False, chosenCard.name)
 
 def main():
     #Grab list of majors from majors.json
@@ -226,9 +215,11 @@ def main():
         i = 0
         while i != opps+1:
             gameWon, nextEffect = players[i].playerTurn(drawDeck, nextEffect)
+            time.sleep(1)
             if gameWon:
                 playAgain = input("Type 'y' to play again, anything else to exit.")
                 if str(playAgain) == "y":
+                    majors = []
                     main()
                 exit(1)
             if nextEffect == "Reverse":
