@@ -1,41 +1,44 @@
 import random
-from majors import *
-types = []
-typesCount = 4
+import json
+majors = []
+majorsCount = 4
+
+#helper function to get the first digit of a number for revised class card mechanics
+def firstDigit(n):
+    return int(str(n)[0])
 
 class Card():
-    def __init__(self, type, value):
-        self.type = type
+    def __init__(self, major, name, value):
+        self.major = major
+        self.name = name
         self.value = value
 
 class Deck(list):
     def __init__(self):
         #Initialize the deck
-        for type in types:
-            #Create 0 cards and 2 sets of 1-9 cards
-            self.append(Card(type,"0"))
-            for i in range(1,10):
-                self.extend([Card(type,str(i))] * 2)
+        for major in majors:
+            for card in major['classCards']:
+                self.extend(2 * [Card(major['major'], card['className'] + " " + card['subject'], card['courseNumber'])])
             #Create two of each action card of each color
-            self.extend([Card(type,"Reverse"), Card(type,"Homework"), Card(type,"Sick Day")] * 2)
+            self.extend([Card(major['major'],"Reverse",0), Card(major['major'],"Homework",0), Card(major['major'],"Sick Day",0)] * 2)
         #Add the Wild cards
-        self.extend([Card("Wild", "Group Project"), Card("Wild", "Advising Appointment")] * 4)
+        self.extend([Card(major['major'], "Group Project",0)] * 4)
         self.cardCount = len(self)
         random.shuffle(self)
 
     def grabTop(self):
         for i in range(self.cardCount):
-            if self[i].type in types:
+            if self[i].major in [major['major'] for major in majors]:
                 self.top = self.removeCard(i+1)
-                self.color = self.top.type
+                self.major = self.top.major
                 return
 
     def insertCard(self,card):
         self.append(card)
         self.cardCount += 1
         self.top = card
-        if self.top.type != "Wild":
-            self.color = self.top.type
+        if self.top.value != 0:
+            self.major = self.top.major
 
     def removeCard(self,n):
         removed = self.pop(n-1)
@@ -68,12 +71,15 @@ class Player(Deck):
     def printHand(self):
         print(f"{self.name}'s Hand:")
         for i in range(self.cardCount):
-            print(f"{i+1}: {self[i].type} {self[i].value}")
+            if self[i].value != 000:
+                print(f"{i+1}: {self[i].major} {self[i].name} {self[i].value}")
+            else:
+                print(f"{i+1}: {self[i].major} {self[i].name}")
     
     #Check if the hand has a card that can be played on the top of the used card pile
     def hasMatch(self, drawDeck):
         for i in range(self.cardCount):
-            if self[i].type == drawDeck.color or self[i].value == drawDeck.top.value or self[i].type == "Wild":
+            if self[i].major == drawDeck.major or firstDigit(self[i].value) == firstDigit(drawDeck.top.value):
                 return (True, i+1)
         return (False, drawDeck.top)
     
@@ -82,8 +88,8 @@ class Player(Deck):
         if self.hasMatch(drawDeck)[0] == False:
             print("You do not have any playable cards. Draw one card.")
             self.draw(1,drawDeck)
-            print(f"You drew a {self[-1].type} {self[-1].value} card.")
-            if self[-1].type == drawDeck.color or self[-1].value == top.value or self[-1].type == "Wild":
+            print(f"You drew a {self[-1].major} {self[-1].name} {self[-1].value} card.")
+            if self[-1].major == drawDeck.major or firstDigit(self[-1].value) == firstDigit(top.value):
                 return (True, self.removeCard(0))
             return (False, self[-1])
 
@@ -98,8 +104,8 @@ class Player(Deck):
                 print(f"You must choose the index of the card from 1 to {self.cardCount}") 
                 continue
             comp = self[chosenCard-1]
-            if comp.type != drawDeck.color and comp.value != top.value and comp.type != "Wild":
-                print(f"You must use a card that matches in major/minor, class, or a wild card.")
+            if comp.major != drawDeck.major and firstDigit(comp.value) != firstDigit(top.value):
+                print(f"You must use a card that matches in major or class level.")
                 continue
             chosenCard = self.removeCard(chosenCard)
             return (True, chosenCard)
@@ -125,7 +131,7 @@ class Player(Deck):
             return self.aiTurn(drawDeck)
         
         #Inform the player of the card they are playing against
-        print(f"The card on top of the pile is a {drawDeck.color} {drawDeck.top.value}")
+        print(f"The card on top of the pile is a {drawDeck.major} {drawDeck.top.name} {drawDeck.top.value} card.")
         print(f"You have {self.cardCount} cards.")
         self.printHand()
         chosenCard = self.getChoice(drawDeck.top, drawDeck)
@@ -134,13 +140,13 @@ class Player(Deck):
             print("The card could not be played, ending your turn.\n")
             return (False, "0")
         drawDeck.insertCard(chosenCard[1])
-        print(f"You played the {chosenCard[1].type} {chosenCard[1].value} card.\n")
-        if chosenCard[1].type == "Wild":
+        print(f"You played the {chosenCard[1].major} {chosenCard[1].name} {chosenCard[1].value} card.\n")
+        if chosenCard[1].major == "Wild":
             while True:
                 print(f"You must pick which color to set the top of the pile to.")
-                for i in range(typesCount):
-                    print(f"{i+1}: {types[i]}")
-                wildColor = input("Pick the number corresponding to the major/minor:")
+                for i in range(majorsCount):
+                    print(f"{i+1}: {majors[i]}")
+                wildColor = input("Pick the number corresponding to the major:")
                 try: wildColor = int(wildColor)
                 except:
                     print("That was not an integer.")
@@ -155,10 +161,10 @@ class Player(Deck):
             print(f"{self.name}: One Card Left! OSU!\n")
         if self.cardCount == 0: 
             #High value, proof-read finishing message
-            print(f"congratulation! yo uare winreewwwww, {self.name}!\n")
+            print(f"Congratulations, you won {self.name}!\n")
             return (True, "0")
         else:
-            return (False, chosenCard[1].value)
+            return (False, chosenCard[1].name)
         
     def aiTurn(self, drawDeck):
         print(f"{self.name} has {self.cardCount} cards!")
@@ -172,10 +178,10 @@ class Player(Deck):
         if matchFound == True:
             chosenCard = self.removeCard(chosenCard)
             drawDeck.insertCard(chosenCard)
-            print(f"{self.name} played the {chosenCard.type} {chosenCard.value} card.")
-            if chosenCard.type == "Wild":
+            print(f"{self.name} played the {chosenCard.major} {chosenCard.name} {chosenCard.value} card.")
+            if chosenCard.major == "Wild":
                 wildColor = types[random.randrange(typesCount)]
-                drawDeck.color = wildColor
+                drawDeck.major = wildColor
                 print(f"{self.name} set the card type on top of the pile to {wildColor}.")
             if self.cardCount == 1:
                 print(f"{self.name}: It's about to be over for you! OSU!\n")
@@ -186,15 +192,14 @@ class Player(Deck):
         return (False, chosenCard.value)
 
 def main():
-    #Grab list of majors from majors.py
-    majorTitles = list(classes)
-    print(len(majorTitles))
+    #Grab list of majors from majors.json
+    majorsjson = json.load(open("majors.json"))
+
     #Pick four random majors
-    for i in range(typesCount):
-        global types
-        types.append(majorTitles.pop(random.randrange(len(majorTitles))))
-    print(f"The majors/minors in play this game are: {types}")
-    
+    for i in range(majorsCount):
+        global majors
+        majors.append(majorsjson.pop(random.randrange(len(majorsjson))))
+    print(f"The majors in play this game are: {[major['major'] for major in majors]}")
     #Initialize the playing deck
     drawDeck = Deck()
     drawDeck.grabTop()
