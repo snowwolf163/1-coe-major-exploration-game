@@ -15,9 +15,18 @@ export default class Game extends Phaser.Scene {
   preload() {
     this.load.image(
       "placeholder-card-back",
-      "src/assets/BackCover/BackCover.jpg"
+      "src/assets/BackCover/card-back.jpg"
     );
     this.load.image("placeholder-card", "src/assets/placeholder-card.png");
+    this.load.image("debt-card", "src/assets/ActionCard/debt-card.jpg");
+    this.load.image("load-card", "src/assets/ActionCard/load-card.jpg");
+    this.load.image("overload-card", "src/assets/ActionCard/overload-card.jpg");
+    this.load.image("reverse-card", "src/assets/ActionCard/reverse-card.jpg");
+    this.load.image("skip-card", "src/assets/ActionCard/skip-card.jpg");
+
+    // placeholders for course and major cards for now
+    this.load.image("course-card", "src/assets/CourseCard/CS-161.jpg");
+    this.load.image("major-card", "src/assets/MajorCard/MajorCS.jpg");
   }
 
   create() {

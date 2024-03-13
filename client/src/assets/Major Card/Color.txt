@@ -1,5 +1,0 @@
-CS: #d73f09
-Civil Engineering: #67d02c
-Chemical Eng: #dbe82c
-Bioengineering: #0342a4
-EECS: #5e1515
