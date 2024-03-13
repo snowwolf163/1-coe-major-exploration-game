@@ -16,6 +16,8 @@ export default class SocketHandler {
     scene.socket.on("changeGameState", ({ state, winner }) => {
       scene.GameHandler.changeGameState(state);
       if (state === "Initializing") {
+        //remove loading screen here
+        scene.UIHandler.removeLoadingScreen();
         scene.DeckHandler.dealCard(750, 500, "cardBack", "opponentCard");
         scene.DeckHandler.dealCard(750, 500, "cardBack", "playerCard");
         scene.dealCards.setInteractive();

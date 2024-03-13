@@ -111,13 +111,20 @@ export default class UIHandler {
       loadingSprite.setPosition(0, rectHeight / 4); // Position below the text
     };
 
+    this.removeLoadingScreen = () => {
+      if (scene.loadingContainer) {
+        scene.loadingContainer.destroy(); // Destroy the loading container and all its children
+        scene.loadingContainer = null; // Set the reference to null to indicate it's no longer in use
+      }
+    };
+
     this.buildUI = () => {
       console.log("building UI");
       this.buildZones();
       this.buildGameText();
       this.buildPlayerAreas();
       this.buildShelf();
-      // this.buildLoadingScreen();
+      this.buildLoadingScreen();
     };
   }
 }
