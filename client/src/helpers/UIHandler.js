@@ -38,12 +38,38 @@ export default class UIHandler {
       scene.cardShelf.setOrigin(1, 0); // set the origin to the top-right corner
     };
 
+    this.buildWinScreen = () => {
+      const rectWidth = 600;
+      const rectHeight = 300;
+      const rectX = (scene.game.config.width - rectWidth) / 2;
+      const rectY = (scene.game.config.height - rectHeight) / 2;
+      scene.winScreen = scene.add.rectangle(
+        rectX + rectWidth / 2,
+        rectY + rectHeight / 2,
+        rectWidth,
+        rectHeight,
+        0xffffff
+      );
+      scene.winScreen.setOrigin(0.5);
+      const gameOverText = scene.add.text(
+        rectX + rectWidth / 2,
+        rectY + rectHeight / 2,
+        "Game Over",
+        {
+          fontSize: "32px",
+          fill: "#000000", // Text color
+        }
+      );
+      gameOverText.setOrigin(0.5);
+    };
+
     this.buildUI = () => {
       console.log("building UI");
       this.buildZones();
       this.buildGameText();
       this.buildPlayerAreas();
       this.buildShelf();
+      // this.buildWinScreen();
     };
   }
 }

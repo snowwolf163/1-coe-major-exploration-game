@@ -20,6 +20,8 @@ export default class SocketHandler {
         scene.DeckHandler.dealCard(1000, 135, "cardBack", "opponentCard");
         scene.dealCards.setInteractive();
         scene.dealCards.setColor("#00ffff");
+      } else if (gameState === "Win") {
+        scene.UIHandler.buildWinScreen();
       }
     });
 
