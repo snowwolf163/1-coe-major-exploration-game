@@ -76,7 +76,6 @@ export default class UIHandler {
       this.buildGameText();
       this.buildPlayerAreas();
       this.buildShelf();
-      // this.buildWinScreen();
     };
   }
 }

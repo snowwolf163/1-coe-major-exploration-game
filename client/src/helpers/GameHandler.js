@@ -4,7 +4,7 @@ export default class GameHandler {
     this.isMyTurn = false;
     this.playerDeck = [];
     this.opponentDeck = [];
-    // this.Deck = []; //TODO: only one deck, finish refactor
+    // this.Deck = [];
     this.playerHand = [];
     this.opponentHand = [];
 
