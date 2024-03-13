@@ -27,6 +27,9 @@ export default class Game extends Phaser.Scene {
     // placeholders for course and major cards for now
     this.load.image("course-card", "src/assets/CourseCard/CS-161.jpg");
     this.load.image("major-card", "src/assets/MajorCard/MajorCS.jpg");
+
+    //placeholder for loading circle animation
+    this.load.image("loading", "src/assets/placeholder-loading.png");
   }
 
   create() {

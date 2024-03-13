@@ -70,12 +70,54 @@ export default class UIHandler {
       gameOverText.setOrigin(0.5);
     };
 
+    this.buildLoadingScreen = () => {
+      const rectWidth = 600;
+      const rectHeight = 300;
+      const rectX = (scene.game.config.width - rectWidth) / 2;
+      const rectY = (scene.game.config.height - rectHeight) / 2;
+      scene.loadingContainer = scene.add.container(
+        rectX + rectWidth / 2,
+        rectY + rectHeight / 2
+      );
+      scene.loadingScreen = scene.add.rectangle(
+        0,
+        0,
+        rectWidth,
+        rectHeight,
+        0xffffff
+      );
+      scene.loadingContainer.add(scene.loadingScreen);
+      const loadingSprite = scene.add.sprite(0, 0, "loading");
+      scene.loadingContainer.add(loadingSprite);
+      loadingSprite.setScale(0.2);
+      scene.tweens.add({
+        targets: loadingSprite,
+        rotation: -Math.PI * 2,
+        duration: 1000,
+        repeat: -1, // Infinite loop
+      });
+
+      const loadingScreenText = scene.add.text(
+        0,
+        -rectHeight / 4, // Position the text above the center
+        "waiting for opponent...",
+        {
+          fontSize: "32px",
+          fill: "#000000", // Text color
+        }
+      );
+      scene.loadingContainer.add(loadingScreenText);
+      loadingScreenText.setOrigin(0.5);
+      loadingSprite.setPosition(0, rectHeight / 4); // Position below the text
+    };
+
     this.buildUI = () => {
       console.log("building UI");
       this.buildZones();
       this.buildGameText();
       this.buildPlayerAreas();
       this.buildShelf();
+      // this.buildLoadingScreen();
     };
   }
 }
