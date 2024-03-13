@@ -38,7 +38,14 @@ export default class UIHandler {
       scene.cardShelf.setOrigin(1, 0); // set the origin to the top-right corner
     };
 
-    this.buildWinScreen = () => {
+    //winner should be t or f
+    this.buildWinScreen = (winner) => {
+      let winScreenText;
+      if (winner) {
+        winScreenText = "You Win!";
+      } else {
+        winScreenText = "Game Over!";
+      }
       const rectWidth = 600;
       const rectHeight = 300;
       const rectX = (scene.game.config.width - rectWidth) / 2;
@@ -54,7 +61,7 @@ export default class UIHandler {
       const gameOverText = scene.add.text(
         rectX + rectWidth / 2,
         rectY + rectHeight / 2,
-        "Game Over",
+        winScreenText,
         {
           fontSize: "32px",
           fill: "#000000", // Text color

@@ -45,7 +45,7 @@ io.on("connection", function (socket) {
     ]); //add more cards here eventually
     console.log(players);
     if (Object.keys(players).length < 2) return;
-    io.emit("changeGameState", "Initializing");
+    io.emit("changeGameState", { state: "Initializing", winner: null });
   });
 
   socket.on("dealCards", function (socketId) {
@@ -69,33 +69,23 @@ io.on("connection", function (socket) {
     readyCheck++;
     if (readyCheck >= 2) {
       gameState = "Ready";
-      io.emit("changeGameState", "Ready");
+      io.emit("changeGameState", { state: "Ready", winner: null });
     }
   });
 
   socket.on("cardPlayed", function (cardName, socketId) {
     io.emit("cardPlayed", cardName, socketId);
-
-    // Find the index of the played card in the inHand array
     const playedCardIndex = players[socketId].inHand.indexOf(cardName);
-
-    // If the card is found in the inHand array, remove it using splice
     if (playedCardIndex !== -1) {
       players[socketId].inHand.splice(playedCardIndex, 1);
     }
-
-    console.log("length after card played: ", players[socketId].inHand.length);
-    console.log("hand after card played: ", players[socketId].inHand);
+    // console.log("length after card played: ", players[socketId].inHand.length);
+    // console.log("hand after card played: ", players[socketId].inHand);
     if (players[socketId].inHand.length === 0) {
       gameState = "Win";
-      io.emit("changeGameState", "Win");
+      io.emit("changeGameState", { state: "Win", winner: socketId });
     }
     io.emit("changeTurn");
-  });
-
-  socket.on("gameOver", function () {
-    gameState = "Win";
-    io.emit("changeGameState", "Win");
   });
 
   socket.on("disconnect", function () {
