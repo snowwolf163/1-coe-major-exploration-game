@@ -29,7 +29,7 @@ export default class Game extends Phaser.Scene {
     this.load.image("major-card", "src/assets/MajorCard/MajorCS.jpg");
 
     //placeholder for loading circle animation
-    this.load.image("loading", "src/assets/placeholder-loading.png");
+    this.load.image("loading", "src/assets/loading.png");
   }
 
   create() {

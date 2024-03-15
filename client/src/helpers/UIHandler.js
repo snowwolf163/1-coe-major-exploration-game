@@ -89,7 +89,7 @@ export default class UIHandler {
       scene.loadingContainer.add(scene.loadingScreen);
       const loadingSprite = scene.add.sprite(0, 0, "loading");
       scene.loadingContainer.add(loadingSprite);
-      loadingSprite.setScale(0.2);
+      loadingSprite.setScale(0.5);
       scene.tweens.add({
         targets: loadingSprite,
         rotation: -Math.PI * 2,
