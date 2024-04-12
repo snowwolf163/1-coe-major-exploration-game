@@ -10,10 +10,10 @@ export default class UIHandler {
     };
 
     this.buildPlayerAreas = () => {
-      scene.playerHandArea = scene.add.rectangle(470, 860, 850, 230);
+      scene.playerHandArea = scene.add.rectangle(500, 860, 2000, 230);
       scene.playerHandArea.setStrokeStyle(2, "#000000");
 
-      scene.opponentHandArea = scene.add.rectangle(470, 135, 850, 230);
+      scene.opponentHandArea = scene.add.rectangle(500, 135, 2000, 230);
       scene.opponentHandArea.setStrokeStyle(2, "#000000");
 
       scene.deckArea = scene.add.rectangle(750, 500, 155, 215);
@@ -30,17 +30,14 @@ export default class UIHandler {
         .text(400, 700, "End Turn & Draw")
         .setFontSize(20)
         .setFontFamily("Trebuchet MS");
-      // .inputEnabled(true);
-      // console.log(scene.plusOne);
-      // console.log(scene.dealCards);
     };
 
     this.buildShelf = () => {
       scene.cardShelf = scene.add.rectangle(
         1175,
-        200,
+        300,
         250,
-        600,
+        375,
         0x999999 // gray color
       );
       scene.cardShelf.setOrigin(1, 0); // set the origin to the top-right corner

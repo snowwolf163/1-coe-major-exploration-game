@@ -33,11 +33,19 @@ export default class SocketHandler {
     });
 
     scene.socket.on("dealCards", (socketId, cards) => {
+      // Determine the length of the player hand
+      const playerHandLength = 5;
+      const cardWidth = 155; // Assuming each card is 155 pixels wide
+      // Calculate the total width occupied by all cards in the hand
+      const totalWidth = playerHandLength * cardWidth;
+      // Calculate the starting x-coordinate for the first card
+      const startX = (scene.sys.canvas.width - totalWidth) / 2;
+
       if (socketId === scene.socket.id) {
         for (let i in cards) {
           let card = scene.GameHandler.playerHand.push(
             scene.DeckHandler.dealCard(
-              155 + i * 155,
+              startX + i * cardWidth,
               860,
               cards[i],
               "playerCard"
@@ -48,7 +56,7 @@ export default class SocketHandler {
         for (let i in cards) {
           let card = scene.GameHandler.opponentHand.push(
             scene.DeckHandler.dealCard(
-              155 + i * 155,
+              startX + i * cardWidth,
               135,
               "cardBack",
               "opponentCard"
@@ -73,14 +81,42 @@ export default class SocketHandler {
 
     // card added to player hand
     scene.socket.on("drawCard", (cardName, socketId) => {
+      const cardWidth = 155; // Assuming each card is 155 pixels wide
       if (socketId == scene.socket.id) {
-        //TODO: how do we know which index to put them at!?
+        //index now stored at "card".data
+
+        // Determine the length of the player hand
+        const playerHandLength = scene.GameHandler.playerHand.length;
+        // Calculate the total width occupied by all cards in the hand
+        const totalWidth = playerHandLength * cardWidth;
+        // Calculate the starting x-coordinate for the first card
+        const startX = (scene.sys.canvas.width - totalWidth) / 2;
+        // Reposition existing cards
+        scene.GameHandler.playerHand.forEach((card, index) => {
+          card.x = startX + index * cardWidth;
+        });
+
+        // Add the new card to the end of the player's hand
+        const newX = startX + playerHandLength * cardWidth;
         scene.GameHandler.playerHand.push(
-          scene.DeckHandler.dealCard(155, 860, cardName, "playerCard")
+          scene.DeckHandler.dealCard(newX, 860, cardName, "playerCard")
         );
       } else {
+        // Determine length of opponent hand
+        const opponentHandLength = scene.GameHandler.opponentHand.length;
+        // Calculate the total width occupied by all cards in the hand
+        const totalWidth = opponentHandLength * cardWidth;
+        // Calculate the starting x-coordinate for the first card
+        const startX = (scene.sys.canvas.width - totalWidth) / 2;
+        // Reposition existing cards
+        scene.GameHandler.opponentHand.forEach((card, index) => {
+          card.x = startX + index * cardWidth;
+        });
+
+        // Add the new card to the end of the opponent's hand
+        const newX = startX + opponentHandLength * cardWidth;
         scene.GameHandler.opponentHand.push(
-          scene.DeckHandler.dealCard(155, 135, "cardBack", "opponentCard")
+          scene.DeckHandler.dealCard(newX, 135, "cardBack", "opponentCard")
         );
       }
     });
