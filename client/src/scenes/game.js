@@ -5,7 +5,7 @@ import InteractiveHandler from "../helpers/InteractiveHandler";
 import SocketHandler from "../helpers/SocketHandler";
 import UIHandler from "../helpers/UIHandler";
 
-//test
+//testing
 
 export default class Game extends Phaser.Scene {
   constructor() {
