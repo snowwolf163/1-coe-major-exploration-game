@@ -83,11 +83,12 @@ io.on("connection", function (socket) {
       gameState = "Win";
       io.emit("changeGameState", { state: "Win", winner: socketId });
     }
-    if (
-      cardName == "debtCard" ||
-      cardName == "loadCard" ||
-      cardName == "overLoadCard"
-    ) {
+    if (cardName == "debtCard") {
+      //cur player gets to play again
+      return;
+    }
+    if (cardName == "loadCard" || cardName == "overLoadCard") {
+      // TODO: add cards to opponent hand
       //cur player gets to play again
       return;
     }
