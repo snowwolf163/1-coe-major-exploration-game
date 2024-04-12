@@ -79,15 +79,13 @@ io.on("connection", function (socket) {
     if (playedCardIndex !== -1) {
       players[socketId].inHand.splice(playedCardIndex, 1);
     }
-    // console.log("length after card played: ", players[socketId].inHand.length);
-    // console.log("hand after card played: ", players[socketId].inHand);
-    if (cardName == "debtCard") {
-      //cur player gets to play again
-      return;
-    }
     if (players[socketId].inHand.length === 0) {
       gameState = "Win";
       io.emit("changeGameState", { state: "Win", winner: socketId });
+    }
+    if (cardName == "debtCard") {
+      //cur player gets to play again
+      return;
     }
     io.emit("changeTurn");
   });
@@ -96,12 +94,19 @@ io.on("connection", function (socket) {
     io.emit("changeTurn");
   });
 
-  // socket.on("drawCard", function (socketID) {
-  //   //TODO: choose new card from deck
-  //   console.log(players.socketID.inDeck);
-  //   //TODO: add new card into hand visually
-  //   //TODO: add new card into what the other player can see
-  // });
+  socket.on("drawCard", function (socketID) {
+    // console.log("drawCard called", socketID);
+    //TODO: refill deck infinitely ??, bug here for no cards left in deck
+    if (players[socketID].inDeck.length === 0) {
+      console.log("no cards left in players deck");
+      return;
+    }
+    const cardName = players[socketID].inDeck.shift(); // Get card from deck into hand on the backend
+    players[socketID].inHand.push(cardName);
+    //TODO: add new card into hands visually
+    // console.log(socketID, " server.js");
+    io.emit("drawCard", cardName, socketID);
+  });
 
   socket.on("disconnect", function () {
     console.log("A user disconnected: " + socket.id);

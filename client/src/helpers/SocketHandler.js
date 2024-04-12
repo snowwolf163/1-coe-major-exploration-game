@@ -58,6 +58,7 @@ export default class SocketHandler {
       }
     });
 
+    // card played into center stack
     scene.socket.on("cardPlayed", (cardName, socketId) => {
       if (socketId !== scene.socket.id) {
         scene.GameHandler.opponentHand.shift().destroy();
@@ -66,6 +67,20 @@ export default class SocketHandler {
           scene.dropZone.y,
           cardName,
           "opponentCard"
+        );
+      }
+    });
+
+    // card added to player hand
+    scene.socket.on("drawCard", (cardName, socketId) => {
+      if (socketId == scene.socket.id) {
+        //TODO: how do we know which index to put them at!?
+        scene.GameHandler.playerHand.push(
+          scene.DeckHandler.dealCard(155, 860, cardName, "playerCard")
+        );
+      } else {
+        scene.GameHandler.opponentHand.push(
+          scene.DeckHandler.dealCard(155, 135, "cardBack", "opponentCard")
         );
       }
     });
