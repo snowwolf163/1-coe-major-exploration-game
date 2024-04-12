@@ -21,7 +21,6 @@ export default class InteractiveHandler {
       //TODO: add card to hand
       if (scene.GameHandler.isMyTurn == true) {
         scene.socket.emit("turnSkipped");
-        // console.log("plusOne button clicked");
       }
     });
     scene.plusOne.on("pointerover", () => {

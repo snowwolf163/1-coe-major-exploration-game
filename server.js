@@ -81,6 +81,10 @@ io.on("connection", function (socket) {
     }
     // console.log("length after card played: ", players[socketId].inHand.length);
     // console.log("hand after card played: ", players[socketId].inHand);
+    if (cardName == "debtCard") {
+      //cur player gets to play again
+      return;
+    }
     if (players[socketId].inHand.length === 0) {
       gameState = "Win";
       io.emit("changeGameState", { state: "Win", winner: socketId });
@@ -89,9 +93,15 @@ io.on("connection", function (socket) {
   });
 
   socket.on("turnSkipped", function () {
-    //TODO: communicate specific card added
     io.emit("changeTurn");
   });
+
+  // socket.on("drawCard", function (socketID) {
+  //   //TODO: choose new card from deck
+  //   console.log(players.socketID.inDeck);
+  //   //TODO: add new card into hand visually
+  //   //TODO: add new card into what the other player can see
+  // });
 
   socket.on("disconnect", function () {
     console.log("A user disconnected: " + socket.id);
