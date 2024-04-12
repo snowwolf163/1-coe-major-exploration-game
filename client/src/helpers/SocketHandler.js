@@ -20,8 +20,8 @@ export default class SocketHandler {
         scene.UIHandler.removeLoadingScreen();
         scene.DeckHandler.dealCard(750, 500, "cardBack", "opponentCard");
         scene.DeckHandler.dealCard(750, 500, "cardBack", "playerCard");
-        scene.dealCards.setInteractive();
-        scene.dealCards.setColor("#00ffff");
+        scene.dealCards.setInteractive(); //deal cards button activated here
+        scene.dealCards.setColor("#ffffff");
       } else if (state === "Win") {
         console.log("winner: ", winner, " scene.socket.id: ", scene.socket.id);
         scene.UIHandler.buildWinScreen(winner === scene.socket.id);

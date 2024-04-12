@@ -25,6 +25,14 @@ export default class UIHandler {
         .text(700, 650, "Deal Cards")
         .setFontSize(20)
         .setFontFamily("Trebuchet MS");
+
+      scene.plusOne = scene.add
+        .text(400, 700, "End Turn & Draw")
+        .setFontSize(20)
+        .setFontFamily("Trebuchet MS");
+      // .inputEnabled(true);
+      // console.log(scene.plusOne);
+      // console.log(scene.dealCards);
     };
 
     this.buildShelf = () => {

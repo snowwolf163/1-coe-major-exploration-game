@@ -5,14 +5,26 @@ export default class InteractiveHandler {
     scene.dealCards.on("pointerdown", () => {
       scene.socket.emit("dealCards", scene.socket.id);
       scene.dealCards.disableInteractive();
+      scene.dealCards.setVisible(false);
+      scene.plusOne.setInteractive(); //activate plus one button here
+      scene.plusOne.setColor("#ffffff");
     });
-
     scene.dealCards.on("pointerover", () => {
       scene.dealCards.setColor("#000000");
     });
-
     scene.dealCards.on("pointerout", () => {
       scene.dealCards.setColor("#ffffff");
+    });
+
+    scene.plusOne.on("pointerdown", () => {
+      // Logic for when the plusOne button is clicked
+      console.log("plusOne button clicked");
+    });
+    scene.plusOne.on("pointerover", () => {
+      scene.plusOne.setColor("#000000");
+    });
+    scene.plusOne.on("pointerout", () => {
+      scene.plusOne.setColor("#ffffff");
     });
 
     scene.input.on("pointerover", (event, gameObjects) => {
