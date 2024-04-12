@@ -15,15 +15,16 @@ export default class DeckHandler {
       let cards = {
         cardBack: new CardBack(scene),
         placeHolderCard: new PlaceHolderCard(scene),
-        DebtCard: new DebtCard(scene),
-        CourseCard: new CourseCard(scene),
-        MajorCard: new MajorCard(scene),
-        LoadCard: new LoadCard(scene),
-        OverloadCard: new OverloadCard(scene),
-        ReverseCard: new ReverseCard(scene),
-        SkipCard: new SkipCard(scene),
+        debtCard: new DebtCard(scene),
+        courseCard: new CourseCard(scene),
+        majorCard: new MajorCard(scene),
+        loadCard: new LoadCard(scene),
+        overLoadCard: new OverloadCard(scene),
+        reverseCard: new ReverseCard(scene),
+        skipCard: new SkipCard(scene),
       };
       let newCard = cards[name];
+      console.log(newCard);
       return newCard.render(x, y, type);
     };
   }

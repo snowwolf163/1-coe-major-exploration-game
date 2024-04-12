@@ -19,6 +19,7 @@ export default class Game extends Phaser.Scene {
     );
     this.load.image("placeholder-card", "src/assets/placeholder-card.png");
     this.load.image("debt-card", "src/assets/ActionCard/debt-card.jpg");
+
     this.load.image("load-card", "src/assets/ActionCard/load-card.jpg");
     this.load.image("overload-card", "src/assets/ActionCard/overload-card.jpg");
     this.load.image("reverse-card", "src/assets/ActionCard/reverse-card.jpg");
