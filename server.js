@@ -83,7 +83,11 @@ io.on("connection", function (socket) {
       gameState = "Win";
       io.emit("changeGameState", { state: "Win", winner: socketId });
     }
-    if (cardName == "debtCard") {
+    if (
+      cardName == "debtCard" ||
+      cardName == "loadCard" ||
+      cardName == "overLoadCard"
+    ) {
       //cur player gets to play again
       return;
     }
@@ -95,7 +99,6 @@ io.on("connection", function (socket) {
   });
 
   socket.on("drawCard", function (socketID) {
-    // console.log("drawCard called", socketID);
     //TODO: refill deck infinitely ??, bug here for no cards left in deck
     if (players[socketID].inDeck.length === 0) {
       console.log("no cards left in players deck");
@@ -103,8 +106,6 @@ io.on("connection", function (socket) {
     }
     const cardName = players[socketID].inDeck.shift(); // Get card from deck into hand on the backend
     players[socketID].inHand.push(cardName);
-    //TODO: add new card into hands visually
-    // console.log(socketID, " server.js");
     io.emit("drawCard", cardName, socketID);
   });
 

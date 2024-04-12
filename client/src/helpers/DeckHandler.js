@@ -24,6 +24,8 @@ export default class DeckHandler {
         skipCard: new SkipCard(scene),
       };
       let newCard = cards[name];
+      newCard.data = x; //gives us x coord information for deck manipulation
+
       console.log(newCard);
       return newCard.render(x, y, type);
     };
