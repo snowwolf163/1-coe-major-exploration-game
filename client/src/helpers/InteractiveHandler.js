@@ -17,8 +17,12 @@ export default class InteractiveHandler {
     });
 
     scene.plusOne.on("pointerdown", () => {
-      // Logic for when the plusOne button is clicked
-      console.log("plusOne button clicked");
+      //TODO: logic to check if this should actually happen based on cards in your hand
+      //TODO: add card to hand
+      if (scene.GameHandler.isMyTurn == true) {
+        scene.socket.emit("turnSkipped");
+        // console.log("plusOne button clicked");
+      }
     });
     scene.plusOne.on("pointerover", () => {
       scene.plusOne.setColor("#000000");

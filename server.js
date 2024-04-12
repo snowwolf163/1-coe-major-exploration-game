@@ -88,6 +88,11 @@ io.on("connection", function (socket) {
     io.emit("changeTurn");
   });
 
+  socket.on("turnSkipped", function () {
+    //TODO: communicate specific card added
+    io.emit("changeTurn");
+  });
+
   socket.on("disconnect", function () {
     console.log("A user disconnected: " + socket.id);
     delete players[socket.id];
