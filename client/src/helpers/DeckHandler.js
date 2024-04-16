@@ -5,7 +5,6 @@ import MajorCard from "./cards/MajorCard";
 import PlaceHolderCard from "./cards/PlaceHolderCard";
 import LoadCard from "./cards/LoadCard";
 import OverloadCard from "./cards/OverloadCard";
-import ReverseCard from "./cards/ReverseCard";
 import SkipCard from "./cards/SkipCard";
 
 export default class DeckHandler {
@@ -20,7 +19,6 @@ export default class DeckHandler {
         majorCard: new MajorCard(scene),
         loadCard: new LoadCard(scene),
         overLoadCard: new OverloadCard(scene),
-        reverseCard: new ReverseCard(scene),
         skipCard: new SkipCard(scene),
       };
       let newCard = cards[name];
