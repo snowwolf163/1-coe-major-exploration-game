@@ -76,12 +76,28 @@ export default class SocketHandler {
           cardName,
           "opponentCard"
         );
+      } else {
+        // TODO: update players hand here, removing cardname
+        // search through playerhand array to delete played card from it
+        for (let i = 0; i < scene.GameHandler.playerHand.length; i++) {
+          if (scene.GameHandler.playerHand[i].data.list.name == cardName) {
+            // destroy card here
+            scene.GameHandler.playerHand.splice(i, 1);
+            break;
+          }
+        }
+        // console.log(
+        //   "player hand after card played",
+        //   scene.GameHandler.playerHand,
+        //   "cardName",
+        //   cardName
+        // );
       }
     });
 
     //TODO:
     //card given to opponent
-    scene.socket.on("opponentDrawCard", (socketId) => {});
+    // scene.socket.on("opponentDrawCard", (socketId) => {});
 
     // card added to player hand
     scene.socket.on("drawCard", (cardName, socketId) => {

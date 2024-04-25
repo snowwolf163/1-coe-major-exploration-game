@@ -18,7 +18,6 @@ export default class InteractiveHandler {
 
     scene.plusOne.on("pointerdown", () => {
       //TODO: logic to check if this should actually happen based on cards in your hand
-      //TODO: add card to hand
       if (scene.GameHandler.isMyTurn == true) {
         scene.socket.emit("drawCard", scene.socket.id);
         scene.socket.emit("turnSkipped");

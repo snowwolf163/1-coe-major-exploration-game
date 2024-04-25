@@ -40,7 +40,12 @@ io.on("connection", function (socket) {
       "overLoadCard",
       "skipCard",
       "courseCard",
-      "majorCard",
+      // "majorCard", //placeholder
+      "majorBE",
+      "majorCBE",
+      "majorCIE",
+      "majorCS",
+      "majorECS",
     ]); //add more cards here eventually
     console.log(players);
     if (Object.keys(players).length < 2) return;
@@ -57,7 +62,12 @@ io.on("connection", function (socket) {
           "overLoadCard",
           "skipCard",
           "courseCard",
-          "majorCard",
+          // "majorCard", //placeholder
+          "majorBE",
+          "majorCBE",
+          "majorCIE",
+          "majorCS",
+          "majorECS",
         ]);
       }
       players[socketId].inHand.push(players[socketId].inDeck.shift());
@@ -72,6 +82,8 @@ io.on("connection", function (socket) {
   });
 
   socket.on("cardPlayed", function (cardName, socketId) {
+    console.log("card played: ", cardName, " - server.js");
+    // console.log("cards in hand before function: ", players);
     io.emit("cardPlayed", cardName, socketId);
     const playedCardIndex = players[socketId].inHand.indexOf(cardName);
     if (playedCardIndex !== -1) {
@@ -85,16 +97,17 @@ io.on("connection", function (socket) {
       //cur player gets to play again, so return
       return;
     }
-    // if (cardName == "loadCard" || cardName == "overLoadCard") {
-    //   // TODO: add cards to opponent hand
-    //   // io.emit("opponentDrawCard", socketId);
-    //   console.log(
-    //     "overload or load card played, user that is calling this fxn is: " +
-    //       socketId
-    //   );
-    //   //cur player gets to play again
-    //   return;
-    // }
+    if (cardName == "loadCard" || cardName == "overLoadCard") {
+      // TODO: add cards to opponent hand
+      // io.emit("opponentDrawCard", socketId);
+      console.log(
+        "overload or load card played, user that is calling this fxn is: " +
+          socketId
+      );
+      //cur player gets to play again
+      return;
+    }
+    // console.log("cards in hand after function: ", players);
     io.emit("changeTurn");
   });
 
