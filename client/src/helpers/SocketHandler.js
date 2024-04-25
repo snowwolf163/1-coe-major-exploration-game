@@ -79,6 +79,10 @@ export default class SocketHandler {
       }
     });
 
+    //TODO:
+    //card given to opponent
+    scene.socket.on("opponentDrawCard", (socketId) => {});
+
     // card added to player hand
     scene.socket.on("drawCard", (cardName, socketId) => {
       const cardWidth = 155; // Assuming each card is 155 pixels wide

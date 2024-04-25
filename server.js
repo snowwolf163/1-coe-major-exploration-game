@@ -84,14 +84,19 @@ io.on("connection", function (socket) {
       io.emit("changeGameState", { state: "Win", winner: socketId });
     }
     if (cardName == "debtCard") {
-      //cur player gets to play again
+      //cur player gets to play again, so return
       return;
     }
-    if (cardName == "loadCard" || cardName == "overLoadCard") {
-      // TODO: add cards to opponent hand
-      //cur player gets to play again
-      return;
-    }
+    // if (cardName == "loadCard" || cardName == "overLoadCard") {
+    //   // TODO: add cards to opponent hand
+    //   // io.emit("opponentDrawCard", socketId);
+    //   console.log(
+    //     "overload or load card played, user that is calling this fxn is: " +
+    //       socketId
+    //   );
+    //   //cur player gets to play again
+    //   return;
+    // }
     io.emit("changeTurn");
   });
 
