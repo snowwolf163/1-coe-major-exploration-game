@@ -15,6 +15,7 @@ export default class Card {
           name: this.name,
           type: type,
           sprite: sprite,
+          // majorCardParent: this.majorCardParent, // used purely for course card types
         });
       if (type === "playerCard") {
         scene.input.setDraggable(card);
