@@ -30,6 +30,23 @@ export default class InteractiveHandler {
       scene.plusOne.setColor("#ffffff");
     });
 
+    // util function to take a string and make it "wrapped"
+    function wrapText(text, maxCharsPerLine) {
+      const words = text.split(" ");
+      let line = "";
+      const wrappedText = [];
+      words.forEach((word) => {
+        if (line.length + word.length <= maxCharsPerLine) {
+          line += word + " ";
+        } else {
+          wrappedText.push(line);
+          line = word + " ";
+        }
+      });
+      wrappedText.push(line);
+      return wrappedText.join("\n");
+    }
+
     let cardDescriptionTitle;
     let cardDescriptionText;
 
@@ -45,21 +62,29 @@ export default class InteractiveHandler {
           clickedObject.type === "Image" &&
           clickedObject.data.list.name !== "cardBack"
         ) {
-          console.log("CLICKED THIS CARD: ", clickedObject.data);
+          // console.log("CLICKED THIS CARD: ", clickedObject.data);
+          const wrappedTitleText = wrapText(
+            clickedObject.data.list.displayName,
+            15
+          );
           cardDescriptionTitle = scene.add.text(
             1055, // X position, align with the rectangle
             350, // Y position, align with the rectangle
-            clickedObject.data.list.displayName,
+            wrappedTitleText,
             {
               fontSize: "24px",
               fill: "#000000", // Text color
             }
           );
           cardDescriptionTitle.setOrigin(0.5);
+          const wrappedDescriptionText = wrapText(
+            clickedObject.data.list.displayDescription,
+            25
+          );
           cardDescriptionText = scene.add.text(
             1055, // X position, align with the rectangle
-            400, // Y position, align with the rectangle
-            clickedObject.data.list.displayDescription,
+            500, // Y position, align with the rectangle
+            wrappedDescriptionText,
             {
               fontSize: "16px",
               fill: "#000000", // Text color
