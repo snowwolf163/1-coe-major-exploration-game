@@ -4,6 +4,7 @@ export default class CourseCard extends Card {
   constructor(scene) {
     super(scene);
     this.name = "courseCard";
+    this.displayName = "Course Card";
     this.playerCardSprite = "course-card";
     this.opponentCardSprite = "course-card";
   }
@@ -15,6 +16,7 @@ export class CourseCS46X extends Card {
   constructor(scene) {
     super(scene);
     this.name = "courseCS46X";
+    // this.displayName = "CS46X - ";
     this.playerCardSprite = "course-CS46X";
     this.opponentCardSprite = "course-CS46X";
     this.majorCardParent = ["MajorCS"];

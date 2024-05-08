@@ -38,8 +38,10 @@ export default class UIHandler {
         300,
         250,
         375,
-        0x999999 // gray color
+        0x999999, // gray color
+        0 // Set alpha to 0 for transparency
       );
+      scene.cardShelf.setStrokeStyle(2, 0x999999); // Set stroke style for border
       scene.cardShelf.setOrigin(1, 0); // set the origin to the top-right corner
     };
 

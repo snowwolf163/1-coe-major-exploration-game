@@ -30,6 +30,46 @@ export default class InteractiveHandler {
       scene.plusOne.setColor("#ffffff");
     });
 
+    let cardDescriptionTitle;
+    let cardDescriptionText;
+
+    // on click show more info in shelf
+    scene.input.on("pointerdown", (event, gameObjects) => {
+      // clear current text inside shelf
+      if (cardDescriptionTitle) cardDescriptionTitle.destroy();
+      if (cardDescriptionText) cardDescriptionText.destroy();
+      // set new text if a card was clicked
+      if (gameObjects && gameObjects.length > 0) {
+        const clickedObject = gameObjects[0];
+        if (
+          clickedObject.type === "Image" &&
+          clickedObject.data.list.name !== "cardBack"
+        ) {
+          console.log("CLICKED THIS CARD: ", clickedObject.data);
+          cardDescriptionTitle = scene.add.text(
+            1055, // X position, align with the rectangle
+            350, // Y position, align with the rectangle
+            clickedObject.data.list.displayName,
+            {
+              fontSize: "24px",
+              fill: "#000000", // Text color
+            }
+          );
+          cardDescriptionTitle.setOrigin(0.5);
+          cardDescriptionText = scene.add.text(
+            1055, // X position, align with the rectangle
+            400, // Y position, align with the rectangle
+            clickedObject.data.list.displayDescription,
+            {
+              fontSize: "16px",
+              fill: "#000000", // Text color
+            }
+          );
+          cardDescriptionText.setOrigin(0.5);
+        }
+      }
+    });
+
     scene.input.on("pointerover", (event, gameObjects) => {
       let pointer = scene.input.activePointer;
       if (
