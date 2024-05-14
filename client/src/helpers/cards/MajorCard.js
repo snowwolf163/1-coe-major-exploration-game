@@ -104,7 +104,7 @@ export class MajorENVE extends Card {
   constructor(scene) {
     super(scene);
     this.name = "majorENVE";
-    this.displayName = "Ecological Engineering";
+    this.displayName = "Environmental Engineering";
     this.displayDescription = "As an environmental engineer, you'll develop new solutions to ensure clean water, air and soil for the health of humans and the environment. This major will teach you how to treat tap water and wastewater, manage stormwater, and protect surface and groundwater sources. With a solid background in chemistry, biology, microbiology and core engineering classes, you will be well-prepared to tackle real-world challenges. After graduation, you'll go on to design technologies to reduce and clean up pollution, recycle waste products, prevent contamination of our water and food supply, and preserve natural resources and habitats.";
     this.playerCardSprite = "major-ENVE";
     this.opponentCardSprite = "major-ENVE";
@@ -158,7 +158,7 @@ export class MajorME extends Card {
 export class MajorNSE extends Card {
   constructor(scene) {
     super(scene);
-    this.name = "majorBEE";
+    this.name = "majorNSE";
     this.displayName = "Nuclear Engineering";
     this.displayDescription = "Nuclear engineering focuses on understanding and using nuclear power to provide carbon-free electricity and to produce and use radiation and radioactive materials. Nuclear engineers research and develop new reactor and radiation shielding designs, advanced computational techniques, nuclear fuel recycling and management strategies, and radioisotope technologies for use in research, medicine, industry, and national security.";
     this.playerCardSprite = "major-NSE";
