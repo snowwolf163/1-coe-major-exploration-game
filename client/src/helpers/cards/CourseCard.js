@@ -296,3 +296,127 @@ export class CourseENGR103 extends Card {
     this.majorCardParent = ["MajorECE", "MajorCS"];
   }
 }
+
+// ARE Courses
+
+export class CourseARE310 extends Card {
+  constructor(scene) {
+    super(scene);
+    this.name = "courseARE310";
+    this.playerCardSprite = "course-ARE310";
+    this.opponentCardSprite = "course-ARE310";
+    this.majorCardParent = ["MajorARE"];
+  }
+}
+
+export class CourseARE311 extends Card {
+  constructor(scene) {
+    super(scene);
+    this.name = "courseARE311";
+    this.playerCardSprite = "course-ARE311";
+    this.opponentCardSprite = "course-ARE311";
+    this.majorCardParent = ["MajorARE"];
+  }
+}
+
+export class CourseARE341 extends Card {
+  constructor(scene) {
+    super(scene);
+    this.name = "courseARE310";
+    this.playerCardSprite = "course-ARE341";
+    this.opponentCardSprite = "course-ARE341";
+    this.majorCardParent = ["MajorARE"];
+  }
+}
+
+export class CourseARE361 extends Card {
+  constructor(scene) {
+    super(scene);
+    this.name = "courseARE361";
+    this.playerCardSprite = "course-ARE361";
+    this.opponentCardSprite = "course-ARE361";
+    this.majorCardParent = ["MajorARE"];
+  }
+}
+
+export class CourseARE418 extends Card {
+  constructor(scene) {
+    super(scene);
+    this.name = "courseARE418";
+    this.playerCardSprite = "course-ARE418";
+    this.opponentCardSprite = "course-ARE418";
+    this.majorCardParent = ["MajorARE"];
+  }
+}
+
+export class CourseARE419 extends Card {
+  constructor(scene) {
+    super(scene);
+    this.name = "courseARE419";
+    this.playerCardSprite = "course-ARE419";
+    this.opponentCardSprite = "course-ARE419";
+    this.majorCardParent = ["MajorARE"];
+  }
+}
+
+export class CourseARE451 extends Card {
+  constructor(scene) {
+    super(scene);
+    this.name = "courseARE451";
+    this.playerCardSprite = "course-ARE451";
+    this.opponentCardSprite = "course-ARE451";
+    this.majorCardParent = ["MajorARE"];
+  }
+}
+
+export class CourseARE461 extends Card {
+  constructor(scene) {
+    super(scene);
+    this.name = "courseARE461";
+    this.playerCardSprite = "course-ARE461";
+    this.opponentCardSprite = "course-ARE461";
+    this.majorCardParent = ["MajorARE"];
+  }
+}
+
+export class CourseARE462 extends Card {
+  constructor(scene) {
+    super(scene);
+    this.name = "courseARE462";
+    this.playerCardSprite = "course-ARE462";
+    this.opponentCardSprite = "course-ARE462";
+    this.majorCardParent = ["MajorARE"];
+  }
+}
+
+export class CourseARE462 extends Card {
+  constructor(scene) {
+    super(scene);
+    this.name = "courseARE462";
+    this.playerCardSprite = "course-ARE462";
+    this.opponentCardSprite = "course-ARE462";
+    this.majorCardParent = ["MajorARE"];
+  }
+}
+
+export class CourseCE381 extends Card {
+  constructor(scene) {
+    super(scene);
+    this.name = "courseCE381";
+    this.playerCardSprite = "course-CE381";
+    this.opponentCardSprite = "course-CE381";
+    this.majorCardParent = ["MajorARE"];
+  }
+}
+
+// BEE Courses
+
+export class CourseBEE221 extends Card {
+  constructor(scene) {
+    super(scene);
+    this.name = "courseBEE221";
+    this.playerCardSprite = "course-BEE221";
+    this.opponentCardSprite = "course-BEE221";
+    this.majorCardParent = ["MajorBEE"];
+  }
+}
