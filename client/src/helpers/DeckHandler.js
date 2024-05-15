@@ -99,11 +99,19 @@ export default class DeckHandler {
 
         // major cards
         majorCard: new MajorCard(scene), //placeholder
-        majorBE: new MajorBE(scene),
-        majorCBE: new MajorCBE(scene),
-        majorCIE: new MajorCIE(scene),
+        majorARE: new MajorARE(scene),
+        majorBEE: new MajorBEE(scene),
+        majorCE: new MajorCE(scene),
+        majorCEM: new MajorCEM(scene),
+        majorCHE: new MajorCHE(scene),
         majorCS: new MajorCS(scene),
         majorECS: new MajorECS(scene),
+        majorENVE: new MajorENVE(scene),
+        majorESE: new MajorESE(scene),
+        majorIE: new MajorIE(scene),
+        majorME: new MajorME(scene),
+        majorNSE: new MajorNSE(scene),
+        majorRHP: new MajorRHP(scene),
       };
       let newCard = cards[name];
       newCard.data = x; //gives us x coord information for deck manipulation
