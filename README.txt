@@ -18,3 +18,5 @@ npm run build
 
 To launch the project start both the server and the client simultaneously:
 npm run start
+
+Open two tabs, http://localhost:8080, to start the game.
