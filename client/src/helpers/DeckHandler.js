@@ -33,11 +33,20 @@ import {
 import DebtCard from "./cards/DebtCard";
 import { MajorCard } from "./cards/MajorCard";
 import {
-  MajorBE,
-  MajorCBE,
-  MajorCIE,
+  MajorARE,
+  MajorBEE,
+  MajorBIOE,
+  MajorCE,
+  MajorCEM,
+  MajorCHE,
   MajorCS,
   MajorECS,
+  MajorENVE,
+  MajorESE,
+  MajorIE,
+  MajorME,
+  MajorNSE,
+  MajorRHP,
 } from "./cards/MajorCard";
 import PlaceHolderCard from "./cards/PlaceHolderCard";
 import LoadCard from "./cards/LoadCard";

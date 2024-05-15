@@ -389,16 +389,6 @@ export class CourseARE462 extends Card {
   }
 }
 
-export class CourseARE462 extends Card {
-  constructor(scene) {
-    super(scene);
-    this.name = "courseARE462";
-    this.playerCardSprite = "course-ARE462";
-    this.opponentCardSprite = "course-ARE462";
-    this.majorCardParent = ["MajorARE"];
-  }
-}
-
 export class CourseCE381 extends Card {
   constructor(scene) {
     super(scene);
