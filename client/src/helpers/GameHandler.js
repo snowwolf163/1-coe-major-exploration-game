@@ -7,11 +7,20 @@ export default class GameHandler {
     this.pileTop = null;
     this.playerHand = [];
     this.opponentHand = [];
+    this.drawCount = 0;
 
     this.changeTurn = () => {
+      while (this.drawCount !== 0) {
+        scene.socket.emit("drawCard", scene.socket.id);
+        this.drawCount--;
+      }
       this.isMyTurn = !this.isMyTurn;
       console.log("isMyTurn: " + this.isMyTurn);
     };
+
+    this.updateDrawCount = (drawCount) => {
+      this.drawCount += drawCount
+    }
 
     this.changeGameState = (gameState) => {
       this.gameState = gameState;
@@ -20,7 +29,7 @@ export default class GameHandler {
 
     this.updateTop = (top) => {
       this.pileTop = top;
-      console.log("this is the top card in the out pile:", this.pileTop.name)
+      console.log("this is the top card in the out pile:", this.pileTop.values.name)
     };
   }
 }

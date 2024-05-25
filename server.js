@@ -151,20 +151,31 @@ io.on("connection", function (socket) {
       gameState = "Win";
       io.emit("changeGameState", { state: "Win", winner: socketId });
     }
+    //logic for action cards
     if (cardName == "debtCard") {
-      //cur player gets to play again, so return
-      return;
-    }
-    if (cardName == "loadCard" || cardName == "overLoadCard") {
-      // TODO: add cards to opponent hand
-      // io.emit("opponentDrawCard", socketId);
+      //current player gets to play again, so return
       console.log(
-        "overload or load card played, user that is calling this fxn is: " +
+        "debt card played, user that is calling this fxn is: " +
           socketId
       );
-      //cur player gets to play again
       return;
     }
+    if (cardName == "loadCard" ) {
+      console.log(
+        "load card played, user that is calling this fxn is: " +
+          socketId
+      );
+      io.emit("actionDraw", 2, socketId);
+      return;
+    }
+    if (cardName == "overLoadCard") {
+      console.log(
+        "overload card played, user that is calling this fxn is: " +
+          socketId
+      );
+      io.emit("actionDraw", 4, socketId);
+      return;
+    } 
     // console.log("cards in hand after function: ", players);
     io.emit("changeTurn");
   });

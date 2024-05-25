@@ -6,27 +6,34 @@ export default class InteractiveHandler {
       //game logic function
        function gameRules (previousCard, currentCard) {
            console.log("This is the previous card in gameRules", previousCard)
-           const eventCards = ['debtCard', 'loadCard', 'overLoadCard'];
            if (previousCard == null) {
                return true;
            }
 
-          //Assuming event cards are typeless, playing them or a mahor card has no effect. Same with playing any card after an event card. 
-          if (currentCard.name[0] === 'm' || eventCards.includes(currentCard.name) || eventCards.includes(previousCard.name)) {
+          //Assuming event cards are typeless, playing them or a major card has no effect. Same with playing any card after an event card. 
+          if ((currentCard.values.name[0] !== 'c') || (previousCard.values.name[0] !== 'c' && previousCard.values.name[0] !== 'm')) {
+            console.log((previousCard.values.name[0] !== 'c' && previousCard.values.name[0] !== 'm'))
               return true;
-          }
+          } 
 
-          if (previousCard.name[0] === 'm' && currentCard.name[0] === 'c') {
-              if (previousCard.name === currentCard.majorCardParent) {
+          if (previousCard.values.name[0] === 'm' && currentCard.values.name[0] === 'c') {
+              for (var i=0; i < currentCard.list.majorCardParent.length; i++){
+                if (currentCard.list.majorCardParent[i] === previousCard.values.name) {
                   return true;
-              } else {
-                  return false;
+                }
               }
+                  return false;
           }
-          else if (previousCard.name[0] === 'c' && currentCard.name[0] === 'c') {
+          else if (previousCard.values.name[0] === 'c' && currentCard.values.name[0] === 'c') {
               //Checks to see if the first character of the course number is equal tier or if they have the same parent
-              if ((previousCard.name[previousCard.name.length - 3] === currentCard.name[currentCard.name.length - 3]) || previousCard.majorCardParent === currentCard.majorCardParent) {
+              if ((previousCard.values.name[previousCard.values.name.length - 3] === currentCard.values.name[currentCard.values.name.length - 3])) {
                   return true;
+              }
+              for (var i = 0; i < previousCard.list.majorCardParent.length; i++) {
+                for (var j = 0; j < currentCard.list.majorCardParent.length; j++)
+                  if (previousCard.list.majorCardParent[i] === currentCard.list.majorCardParent[j]) {
+                    return true;
+                  }
               }
           }
 
@@ -176,7 +183,7 @@ export default class InteractiveHandler {
         if (
             scene.GameHandler.isMyTurn &&
             scene.GameHandler.gameState === "Ready" &&
-            gameRules(scene.GameHandler.pileTop, gameObject.data.values) //added
+            gameRules(scene.GameHandler.pileTop, gameObject.data) //added
       ) {
         gameObject.x = dropZone.x;
         gameObject.y = dropZone.y;
@@ -189,7 +196,7 @@ export default class InteractiveHandler {
             );
         scene.socket.emit(
           "updateTop",
-          gameObject.data.values
+          gameObject.data
         );
 
       } else {

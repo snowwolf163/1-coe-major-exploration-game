@@ -65,7 +65,12 @@ export default class SocketHandler {
         }
       }
     });
-
+    scene.socket.on("actionDraw", (cardCount, socketId) => {
+      if (socketId !== scene.socket.id) {
+        console.log("socket handler");
+        scene.GameHandler.updateDrawCount(cardCount);
+      }
+    });
     // card played into center stack
     scene.socket.on("cardPlayed", (cardName, socketId) => {
       if (socketId !== scene.socket.id) {
