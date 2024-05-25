@@ -1,6 +1,38 @@
 export default class InteractiveHandler {
   constructor(scene) {
-    scene.cardPreview = null;
+      scene.cardPreview = null;
+
+      //game logic function
+       function gameRules (previousCard, currentCard) {
+
+          const eventCards = ['debtCard', 'loadCard', 'overLoadCard'];
+
+          //Assuming event cards are typeless, playing them or a mahor card has no effect. Same with playing any card after an event card. 
+          if (currentCard.name[0] === 'm' || eventCards.includes(currentCard.name) || eventCards.includes(previousCard.name) || previousCard == null) {
+              return true;
+          }
+
+          if (previousCard.name[0] === 'm' && currentCard.name[0] === 'c') {
+              if (previousCard.name === currentCard.majorCardParent) {
+                  return true;
+              } else {
+                  return false;
+              }
+          }
+          else if (previousCard.name[0] === 'c' && currentCard.name[0] === 'c') {
+              //Checks to see if the first character of the course number is equal tier or if they have the same parent
+              if ((previousCard.name.length - 3 === currentCard.name.length - 3) || previousCard.majorCardParent === currentCard.majorCardParent) {
+                  return true;
+              }
+          }
+
+          return false;
+      }
+
+      let prevCard = null; //previous card (null at first)
+      let curCard; //current card (set inside the drop function)
+
+
 
     scene.dealCards.on("pointerdown", () => {
       scene.socket.emit("dealCards", scene.socket.id);
@@ -140,13 +172,18 @@ export default class InteractiveHandler {
     });
 
     scene.input.on("drop", (pointer, gameObject, dropZone) => {
-      if (
-        scene.GameHandler.isMyTurn &&
-        scene.GameHandler.gameState === "Ready"
+
+        currentCard = gameObject.data.values; //added
+
+        if (
+            scene.GameHandler.isMyTurn &&
+            scene.GameHandler.gameState === "Ready" //&&
+            //gameRules(prevCard, curCard) //added
       ) {
         gameObject.x = dropZone.x;
         gameObject.y = dropZone.y;
-        scene.input.setDraggable(gameObject, false);
+            scene.input.setDraggable(gameObject, false);
+            previousCard = currentCard; //added
         scene.socket.emit(
           "cardPlayed",
           gameObject.data.values.name,
