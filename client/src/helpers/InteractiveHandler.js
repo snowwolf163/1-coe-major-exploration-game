@@ -1,7 +1,3 @@
-
-let prevCard = null;
-let curCard;
-
 export default class InteractiveHandler {
 
   constructor(scene) {
@@ -9,9 +5,8 @@ export default class InteractiveHandler {
 
       //game logic function
        function gameRules (previousCard, currentCard) {
-
+           console.log("This is the previous card in gameRules", previousCard)
            const eventCards = ['debtCard', 'loadCard', 'overLoadCard'];
-
            if (previousCard == null) {
                return true;
            }
@@ -30,7 +25,7 @@ export default class InteractiveHandler {
           }
           else if (previousCard.name[0] === 'c' && currentCard.name[0] === 'c') {
               //Checks to see if the first character of the course number is equal tier or if they have the same parent
-              if ((previousCard.name.length - 3 === currentCard.name.length - 3) || previousCard.majorCardParent === currentCard.majorCardParent) {
+              if ((previousCard.name[previousCard.name.length - 3] === currentCard.name[currentCard.name.length - 3]) || previousCard.majorCardParent === currentCard.majorCardParent) {
                   return true;
               }
           }
@@ -178,11 +173,10 @@ export default class InteractiveHandler {
     });
 
     scene.input.on("drop", (pointer, gameObject, dropZone) => {
-
         if (
             scene.GameHandler.isMyTurn &&
             scene.GameHandler.gameState === "Ready" &&
-            gameRules(prevCard, gameObject.data.values) //added
+            gameRules(scene.GameHandler.pileTop, gameObject.data.values) //added
       ) {
         gameObject.x = dropZone.x;
         gameObject.y = dropZone.y;
@@ -193,7 +187,11 @@ export default class InteractiveHandler {
           gameObject.data.values.name,
             scene.socket.id
             );
-            prevCard = gameObject.data.values; //added
+        scene.socket.emit(
+          "updateTop",
+          gameObject.data.values
+        );
+
       } else {
         gameObject.x = gameObject.input.dragStartX;
         gameObject.y = gameObject.input.dragStartY;

@@ -57,6 +57,7 @@ export default class DeckHandler {
   constructor(scene) {
     this.dealCard = (x, y, name, type) => {
       console.log(x, y, name, type);
+      //Dictionary of cards to prepare for display on used card pile
       let cards = {
         cardBack: new CardBack(scene),
         placeHolderCard: new PlaceHolderCard(scene),
@@ -98,7 +99,6 @@ export default class DeckHandler {
         courseENGR103: new CourseENGR103(scene),
 
         // major cards
-        majorCard: new MajorCard(scene), //placeholder
         majorARE: new MajorARE(scene),
         majorBEE: new MajorBEE(scene),
         majorCE: new MajorCE(scene),

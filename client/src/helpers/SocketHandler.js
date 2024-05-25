@@ -95,6 +95,9 @@ export default class SocketHandler {
       }
     });
 
+    scene.socket.on("updateTop", (top) => {
+      scene.GameHandler.updateTop(top);
+    })
     //TODO:
     //card given to opponent
     // scene.socket.on("opponentDrawCard", (socketId) => {});

@@ -169,6 +169,10 @@ io.on("connection", function (socket) {
     io.emit("changeTurn");
   });
 
+  socket.on("updateTop", function (top) {
+    io.emit("updateTop", top);
+  });
+
   socket.on("turnSkipped", function () {
     io.emit("changeTurn");
   });
