@@ -1,4 +1,9 @@
+
+let prevCard = null;
+let curCard;
+
 export default class InteractiveHandler {
+
   constructor(scene) {
       scene.cardPreview = null;
 
@@ -30,11 +35,8 @@ export default class InteractiveHandler {
               }
           }
 
-          return false;
+           return false;
       }
-
-      let prevCard = null; //previous card (null at first)
-      let curCard; //current card (set inside the drop function)
 
 
 
@@ -177,22 +179,21 @@ export default class InteractiveHandler {
 
     scene.input.on("drop", (pointer, gameObject, dropZone) => {
 
-        currentCard = gameObject.data.values; //added
-
         if (
             scene.GameHandler.isMyTurn &&
-            scene.GameHandler.gameState === "Ready" //&&
-            //gameRules(prevCard, curCard) //added
+            scene.GameHandler.gameState === "Ready" &&
+            gameRules(prevCard, gameObject.data.values) //added
       ) {
         gameObject.x = dropZone.x;
         gameObject.y = dropZone.y;
             scene.input.setDraggable(gameObject, false);
-            previousCard = currentCard; //added
+            
         scene.socket.emit(
           "cardPlayed",
           gameObject.data.values.name,
-          scene.socket.id
-        );
+            scene.socket.id
+            );
+            prevCard = gameObject.data.values; //added
       } else {
         gameObject.x = gameObject.input.dragStartX;
         gameObject.y = gameObject.input.dragStartY;
