@@ -5,10 +5,14 @@ export default class InteractiveHandler {
       //game logic function
        function gameRules (previousCard, currentCard) {
 
-          const eventCards = ['debtCard', 'loadCard', 'overLoadCard'];
+           const eventCards = ['debtCard', 'loadCard', 'overLoadCard'];
+
+           if (previousCard == null) {
+               return true;
+           }
 
           //Assuming event cards are typeless, playing them or a mahor card has no effect. Same with playing any card after an event card. 
-          if (currentCard.name[0] === 'm' || eventCards.includes(currentCard.name) || eventCards.includes(previousCard.name) || previousCard == null) {
+          if (currentCard.name[0] === 'm' || eventCards.includes(currentCard.name) || eventCards.includes(previousCard.name)) {
               return true;
           }
 
