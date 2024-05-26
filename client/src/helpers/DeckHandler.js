@@ -89,7 +89,7 @@ import {
 	CoursePH211,
 	CoursePH212,
 	CoursePH481,
-	CourseCE313,
+	CourseENVECE313,
 	CourseCHE311,
 	CourseENVE322,
 	CourseENVE415,
@@ -306,7 +306,7 @@ export default class DeckHandler {
         coursePH212: new CoursePH212(scene),
         coursePH481: new CoursePH481(scene),
 		// ENVE
-		courseCE313: new CourseCE313(scene),
+		courseENVECE313: new CourseENVECE313(scene),
 		courseCHE311: new CourseCHE311(scene),
 		courseENVE322: new CourseENVE322(scene),
 		courseENVE415: new CourseENVE415(scene),

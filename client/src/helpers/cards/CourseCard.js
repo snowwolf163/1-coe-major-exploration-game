@@ -955,12 +955,12 @@ export class CourseCHE461 extends Card {
 }
 
 // ENVE Courses
-export class CourseCE313 extends Card {
+export class CourseENVECE313 extends Card {
   constructor(scene) {
     super(scene);
-    this.name = "courseCE313";
-    this.playerCardSprite = "course-CE313";
-    this.opponentCardSprite = "course-CE313";
+    this.name = "courseENVECE313";
+    this.playerCardSprite = "course-ENVECE313";
+    this.opponentCardSprite = "course-ENVECE313";
     this.majorCardParent = ["majorENVE"];
   }
 }

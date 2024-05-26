@@ -146,7 +146,7 @@ export default class Game extends Phaser.Scene {
 	this.load.image("course-PH212", "src/assets/CourseCard/ECE/PH-212.jpg");
 	this.load.image("course-PH481", "src/assets/CourseCard/ECE/PH-481.jpg");
 	// -- ENVE courses
-	this.load.image("course-CE313", "src/assets/CourseCard/ENVE/CE-313.png");
+	this.load.image("course-ENVECE313", "src/assets/CourseCard/ENVE/CE-313.png");
 	this.load.image("course-CHE311", "src/assets/CourseCard/ENVE/CHE-311.png");
 	this.load.image("course-ENVE322", "src/assets/CourseCard/ENVE/ENVE-322.png");
 	this.load.image("course-ENVE415", "src/assets/CourseCard/ENVE/ENVE-415.png");
