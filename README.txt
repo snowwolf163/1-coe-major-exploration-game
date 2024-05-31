@@ -33,6 +33,7 @@ Version (3.0.1) - 5/30/24:
 • Card sizes were made uniform
 • Removed Bee Movie Script
 • Removed the "End Turn & Draw" button for players if it is not currently their turn
+• Added links to the "Additional Resources" tab
 
 Version (3.0.0) - First Release - 5/26/24:
 • Game logic was implemented 
