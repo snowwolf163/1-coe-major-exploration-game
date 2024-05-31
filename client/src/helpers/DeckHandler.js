@@ -172,7 +172,7 @@ import {
 	CourseENGR100,
 	CourseENGR102,
 	CourseENGR103,
-	courseWR121,
+	CourseWR121,
 } from "./cards/CourseCard";
 import DebtCard from "./cards/DebtCard";
 import { MajorCard } from "./cards/MajorCard";
