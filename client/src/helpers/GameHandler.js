@@ -15,6 +15,7 @@ export default class GameHandler {
         this.drawCount--;
       }
       this.isMyTurn = !this.isMyTurn;
+      scene.plusOne.visible = !scene.plusOne.visible
       console.log("isMyTurn: " + this.isMyTurn);
     };
 

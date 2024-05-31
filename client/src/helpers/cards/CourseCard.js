@@ -16,9 +16,10 @@ export class CourseCS46X extends Card {
   constructor(scene) {
     super(scene);
     this.name = "courseCS46X";
-    // this.displayName = "CS46X - ";
+    //this.displayName = "CS46X - ";
     this.playerCardSprite = "course-CS46X";
     this.opponentCardSprite = "course-CS46X";
+    //this.displayDescription = ""
     this.majorCardParent = ["majorCS"];
   }
 }
@@ -322,7 +323,7 @@ export class CourseARE311 extends Card {
 export class CourseARE341 extends Card {
   constructor(scene) {
     super(scene);
-    this.name = "courseARE310";
+    this.name = "courseARE341";
     this.playerCardSprite = "course-ARE341";
     this.opponentCardSprite = "course-ARE341";
     this.majorCardParent = ["majorARE"];

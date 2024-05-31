@@ -30,6 +30,8 @@ export default class UIHandler {
         .text(400, 700, "End Turn & Draw")
         .setFontSize(20)
         .setFontFamily("Trebuchet MS");
+      //this allows the player to only see end turn and draw when it is their turn
+      scene.plusOne.visible = false;
     };
 
     this.buildShelf = () => {

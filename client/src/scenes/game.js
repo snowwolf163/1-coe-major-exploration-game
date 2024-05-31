@@ -25,12 +25,7 @@ export default class Game extends Phaser.Scene {
 	this.load.image("debt-card", "src/assets/ActionCard/debt-card.jpg");
 	this.load.image("load-card", "src/assets/ActionCard/load-card.jpg");
 	this.load.image("overload-card", "src/assets/ActionCard/overload-card.jpg");
-	// this.load.image("reverse-card", "src/assets/ActionCard/reverse-card.jpg");
 	this.load.image("skip-card", "src/assets/ActionCard/skip-card.jpg");
-
-	// placeholders for course and major cards for now
-	this.load.image("course-card", "src/assets/CourseCard/CS-161.jpg");
-	this.load.image("major-card", "src/assets/MajorCard/MajorCS.jpg");
 
 	// major cards
 	this.load.image("major-ARE", "src/assets/MajorCard/MajorARE.png");
@@ -40,7 +35,7 @@ export default class Game extends Phaser.Scene {
 	this.load.image("major-CEM", "src/assets/MajorCard/MajorCEM.png");
 	this.load.image("major-CHE", "src/assets/MajorCard/MajorCHE.png");
 	this.load.image("major-CS", "src/assets/MajorCard/MajorCS.png");
-	this.load.image("major-ECS", "src/assets/MajorCard/MajorECS.png");
+	this.load.image("major-ECE", "src/assets/MajorCard/MajorECE.png");
 	this.load.image("major-ENVE", "src/assets/MajorCard/MajorENVE.png");
 	this.load.image("major-ESE", "src/assets/MajorCard/MajorESE.png");
 	this.load.image("major-IE", "src/assets/MajorCard/MajorIE.png");

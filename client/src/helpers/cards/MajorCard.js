@@ -89,14 +89,14 @@ export class MajorCS extends Card {
   }
 }
 
-export class MajorECS extends Card {
+export class MajorECE extends Card {
   constructor(scene) {
     super(scene);
-    this.name = "majorECS";
+    this.name = "majorECE";
     this.displayName = "Electrical and Computer Engineering";
     this.displayDescription = "Transform the world in virtually any industry as an electrical and computer engineer. As an electrical and computer engineering student at Oregon State, you'll learn to design, build, and support new technologies while refining existing systems, processes, and products. You'll benefit from one of the most innovative and hands-on undergraduate degree programs in the Pacific Northwest, with expert faculty and a cutting-edge curriculum. Paid internships will provide you with the skills to contribute to industries as diverse as agriculture, environmental monitoring, forestry, robotics, and beyond.";
-    this.playerCardSprite = "major-ECS";
-    this.opponentCardSprite = "major-ECS";
+    this.playerCardSprite = "major-ECE";
+    this.opponentCardSprite = "major-ECE";
   }
 }
 
@@ -171,7 +171,7 @@ export class MajorRHP extends Card {
     super(scene);
     this.name = "majorRHP";
     this.displayName = "Radiation Health Physics";
-    this.displayDescription = "Radiation health physics involves the study of ionizing radiation and developing systems and methods to protect people and their environments from radiation’s hazards. Radiation health physicists protect us from the potential dangers of exposure to radiation. Their responsibilities may include managing radiation safety at nuclear plants and hospitals; designing radiation shields for industrial and medical applications; designing sophisticated radiation detection systems; researching the effects of radiation on the environment; and providing radiation protection training. Their role is essential to society’s well-being.";
+    this.displayDescription = "Radiation health physics involves the study of ionizing radiation and developing systems and methods to protect people and their environments from radiation hazards. Radiation health physicists protect us from the potential dangers of exposure to radiation. Their responsibilities may include managing radiation safety at nuclear plants and hospitals; designing radiation shields for industrial and medical applications; designing sophisticated radiation detection systems; researching the effects of radiation on the environment; and providing radiation protection training. Their role is essential to society’s well-being.";
     this.playerCardSprite = "major-RHP";
     this.opponentCardSprite = "major-RHP";
   }

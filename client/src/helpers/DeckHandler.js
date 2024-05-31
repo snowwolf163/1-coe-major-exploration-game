@@ -180,7 +180,7 @@ import {
   MajorCEM,
   MajorCHE,
   MajorCS,
-  MajorECS,
+  MajorECE,
   MajorENVE,
   MajorESE,
   MajorIE,
@@ -188,7 +188,6 @@ import {
   MajorNSE,
   MajorRHP,
 } from "./cards/MajorCard";
-import PlaceHolderCard from "./cards/PlaceHolderCard";
 import LoadCard from "./cards/LoadCard";
 import OverloadCard from "./cards/OverloadCard";
 import SkipCard from "./cards/SkipCard";
@@ -200,12 +199,10 @@ export default class DeckHandler {
       //Dictionary of cards to prepare for display on used card pile
       let cards = {
         cardBack: new CardBack(scene),
-        placeHolderCard: new PlaceHolderCard(scene),
         // action cards
         debtCard: new DebtCard(scene),
         loadCard: new LoadCard(scene),
         overLoadCard: new OverloadCard(scene),
-        skipCard: new SkipCard(scene),
         // course cards
         courseCard: new CourseCard(scene), //placeholder
         // course cards
@@ -396,11 +393,12 @@ export default class DeckHandler {
         // major cards
         majorARE: new MajorARE(scene),
         majorBEE: new MajorBEE(scene),
+		majorBIOE: new MajorBIOE(scene),
         majorCE: new MajorCE(scene),
         majorCEM: new MajorCEM(scene),
         majorCHE: new MajorCHE(scene),
         majorCS: new MajorCS(scene),
-        majorECS: new MajorECS(scene),
+        majorECE: new MajorECE(scene),
         majorENVE: new MajorENVE(scene),
         majorESE: new MajorESE(scene),
         majorIE: new MajorIE(scene),

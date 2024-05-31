@@ -72,6 +72,7 @@ export default class InteractiveHandler {
 
     // util function to take a string and make it "wrapped"
     function wrapText(text, maxCharsPerLine) {
+      //text = String(text)
       const words = text.split(" ");
       let line = "";
       const wrappedText = [];
