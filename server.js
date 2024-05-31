@@ -20,7 +20,7 @@ const NSE = ["majorNSE", "courseNSE217", "courseNSE234", "courseNSE235", "course
 const RHP = ["majorRHP", "courseRHPH310", "courseRHPH425", "courseRHPH445", "courseRHPNSE234", "courseRHPNSE235", "courseRHPNSE236", "courseRHPNSE319", "courseRHPNSE415", "courseRHPNSE435", "courseRHPNSE474", "courseRHPNSE475", "courseRHPNSE481", "courseRHPNSE483", "courseRHPNSE488", "courseCH121", "courseCOMM111", "courseCS161", "courseCS162", "courseENGR100", "courseENGR102", "courseENGR103", "courseWR121"]
 let gameState = "Initializing";
 let players = {};
-let gamemajors = [CS]
+let gamemajors = []
 let readyCheck = 0;
 
 const io = require("socket.io")(http, {
@@ -45,12 +45,12 @@ io.on("connection", function (socket) {
   if (Object.keys(players).length < 2) {
     players[socket.id].isPlayerA = true;
     //add action cards
-    //for (let i = 0; i < 4; i++) {
-      //gamemajors.push(["debtCard", "loadCard", "overLoadCard"])
-    //}
+    for (let i = 0; i < 4; i++) {
+      gamemajors.push(["debtCard", "loadCard", "overLoadCard"])
+    }
     //determine majors on game start as first person joins
     majors = shuffle([ARE, BEE, BIOE, CE, CEM, CHE, CS, ECE, ENVE, ESE, IE, ME, NSE, RHP])
-    //gamemajors.push(majors.shift(), majors.shift(), majors.shift(), majors.shift())
+    gamemajors.push(majors.shift(), majors.shift(), majors.shift(), majors.shift())
     io.emit("firstTurn");
   }
 
