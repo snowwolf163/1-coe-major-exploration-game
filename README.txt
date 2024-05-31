@@ -35,7 +35,8 @@ Version (3.0.1) - 5/30/24:
 • Removed the "End Turn & Draw" button for players if it is not currently their turn
 • Added links to the "Additional Resources" tab
 • Added tier-1 courses 
-• Modified some assets (changed .jpg to .png for consistency and trimmed down major descriptions)
+• Changed all .jpg images to .png for consistency
+• Trimmed some major descriptions and added some course descriptions
 
 Version (3.0.0) - First Release - 5/26/24:
 • Game logic was implemented 
