@@ -32,6 +32,7 @@ Version (3.0.1) - 5/30/24:
 • 4 majors and their associated courses will be present at a time per OSUNO session
 • Card sizes were made uniform
 • Removed Bee Movie Script
+• Removed the "End Turn & Draw" button for players if it is not currently their turn
 
 Version (3.0.0) - First Release - 5/26/24:
 • Game logic was implemented 
