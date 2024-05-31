@@ -6,7 +6,7 @@ export default class LoadCard extends Card {
     this.name = "loadCard";
     this.displayName = "Load Card";
     this.displayDescription =
-      "When this card is played, your opponent draws 1 card";
+      "When this card is played, your opponent draws 2 cards and misses their turn.";
     this.playerCardSprite = "load-card";
     this.opponentCardSprite = "load-card";
   }

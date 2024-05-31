@@ -2,7 +2,6 @@ import CardBack from "./cards/CardBack";
 import CourseCard from "./cards/CourseCard";
 import {
 	CourseARE310,
-	CourseARE311,
 	CourseARE341,
 	CourseARE361,
 	CourseARE418,
@@ -32,19 +31,17 @@ import {
 	CourseBIOE420,
 	CourseBIOE457,
 	CourseBIOE465,
-	CourseCBBE212,
+	CourseCBEE212,
 	CourseCCE201,
 	CourseCCE207,
 	CourseCE202,
 	CourseCE311,
 	CourseCE313,
 	CourseCE361,
-	CourseCE371,
 	CourseCE372,
 	CourseCE412,
 	CourseCE481,
 	CourseCE491,
-	CourseCCEM201,
 	CourseCCE203,
 	CourseCCE321,
 	CourseCE427,
@@ -78,7 +75,6 @@ import {
 	CourseCS444,
 	CourseCS475,
 	CourseCHE444,
-	CourseCHE499,
 	CourseECE271,
 	CourseECE322,
 	CourseECE341,
@@ -134,7 +130,6 @@ import {
 	CourseME414,
 	CourseME420,
 	CourseME424,
-	CourseNSE217,
 	CourseNSE234,
 	CourseNSE235,
 	CourseNSE236,
@@ -172,7 +167,7 @@ import {
 	CourseENGR100,
 	CourseENGR102,
 	CourseENGR103,
-	courseWR121,
+	CourseWR121,
 } from "./cards/CourseCard";
 import DebtCard from "./cards/DebtCard";
 import { MajorCard } from "./cards/MajorCard";
@@ -212,7 +207,6 @@ export default class DeckHandler {
         // course cards
 		// ARE courses
 		courseARE310: new CourseARE310(scene),
-		courseARE311: new CourseARE311(scene),
 		courseARE341: new CourseARE341(scene),
 		courseARE361: new CourseARE361(scene),
 		courseARE418: new CourseARE418(scene),
@@ -244,7 +238,7 @@ export default class DeckHandler {
 		courseBIOE420: new CourseBIOE420(scene),
 		courseBIOE457: new CourseBIOE457(scene),
 		courseBIOE465: new CourseBIOE465(scene),
-		courseCBBE212: new CourseCBBE212(scene),
+		courseCBEE212: new CourseCBEE212(scene),
 		// CE
 		courseCCE201: new CourseCCE201(scene),
 		courseCCE207: new CourseCCE207(scene),
@@ -252,13 +246,11 @@ export default class DeckHandler {
 		courseCE311: new CourseCE311(scene),
 		courseCE313: new CourseCE313(scene),
 		courseCE361: new CourseCE361(scene),
-		courseCE371: new CourseCE371(scene),
 		courseCE372: new CourseCE372(scene),
 		courseCE412: new CourseCE412(scene),
 		courseCE481: new CourseCE481(scene),
 		courseCE491: new CourseCE491(scene),
 		// CEM
-		courseCCEM201: new CourseCCEM201(scene),
 		courseCCE203: new CourseCCE203(scene),
 		courseCCE321: new CourseCCE321(scene),
 		courseCE427: new CourseCE427(scene),
@@ -295,7 +287,6 @@ export default class DeckHandler {
         courseCS475: new CourseCS475(scene),
 		// ECE courses
         courseCHE444: new CourseCHE444(scene),
-        courseCHE499: new CourseCHE499(scene),
         courseECE271: new CourseECE271(scene),
         courseECE322: new CourseECE322(scene),
         courseECE341: new CourseECE341(scene),
@@ -356,7 +347,6 @@ export default class DeckHandler {
 		courseME420: new CourseME420(scene),
 		courseME424: new CourseME424(scene),
 		// NSE
-		courseNSE217: new CourseNSE217(scene),
 		courseNSE234: new CourseNSE234(scene),
 		courseNSE235: new CourseNSE235(scene),
 		courseNSE236: new CourseNSE236(scene),

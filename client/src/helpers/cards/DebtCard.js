@@ -6,7 +6,7 @@ export default class DebtCard extends Card {
     this.name = "debtCard";
     this.displayName = "Debt Card";
     this.displayDescription =
-      "When this card is played, your opponent misses their turn";
+      "When this card is played, your opponent goes into a one-turn debt.";
     this.playerCardSprite = "debt-card";
     this.opponentCardSprite = "debt-card";
   }

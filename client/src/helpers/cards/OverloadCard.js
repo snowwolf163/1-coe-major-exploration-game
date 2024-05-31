@@ -6,7 +6,7 @@ export default class OverloadCard extends Card {
     this.name = "overLoadCard";
     this.displayName = "Overload Card";
     this.displayDescription =
-      "When this card is played, your opponent draws 2 cards";
+      "When this card is played, your opponent draws 4 cards and misses their turn.";
     this.playerCardSprite = "overload-card";
     this.opponentCardSprite = "overload-card";
   }
