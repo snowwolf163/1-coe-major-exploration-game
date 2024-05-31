@@ -12,6 +12,16 @@ export default class CourseCard extends Card {
 
 // CS courses
 
+export class CourseMTH231 extends Card {
+  constructor(scene) {
+    super(scene);
+    this.name = "courseMTH231";
+    this.playerCardSprite = "course-MTH231";
+    this.opponentCardSprite = "course-MTH231";
+    this.majorCardParent = ["majorCS"];
+  }
+}
+
 export class CourseCS46X extends Card {
   constructor(scene) {
     super(scene);
@@ -248,13 +258,33 @@ export class CoursePH481 extends Card {
 
 // "multi" courses
 
+export class CourseCH121 extends Card {
+  constructor(scene) {
+    super(scene);
+    this.name = "courseCH121";
+    this.playerCardSprite = "course-CH121";
+    this.opponentCardSprite = "course-CH121";
+    this.majorCardParent = ["majorECE", "majorCS", "majorARE", "majorBEE", "majorBIOE", "majorCE", "majorCEM", "majorCHE", "majorENVE", "majorESE", "majorIE", "majorME", "majorNSE", "majorRHP"];
+  }
+}
+
+export class CourseCOMM111 extends Card {
+  constructor(scene) {
+    super(scene);
+    this.name = "courseCOMM111";
+    this.playerCardSprite = "course-COMM111";
+    this.opponentCardSprite = "course-COMM111";
+    this.majorCardParent = ["majorECE", "majorCS", "majorARE", "majorBEE", "majorBIOE", "majorCE", "majorCEM", "majorCHE", "majorENVE", "majorESE", "majorIE", "majorME", "majorNSE", "majorRHP"];
+  }
+}
+
 export class CourseCS161 extends Card {
   constructor(scene) {
     super(scene);
     this.name = "courseCS161";
     this.playerCardSprite = "course-CS161";
     this.opponentCardSprite = "course-CS161";
-    this.majorCardParent = ["majorECE", "majorCS"];
+    this.majorCardParent = ["majorECE", "majorCS", "majorARE", "majorBEE", "majorBIOE", "majorCE", "majorCEM", "majorCHE", "majorENVE", "majorESE", "majorIE", "majorME", "majorNSE", "majorRHP"];
   }
 }
 
@@ -264,7 +294,7 @@ export class CourseCS162 extends Card {
     this.name = "courseCS162";
     this.playerCardSprite = "course-CS162";
     this.opponentCardSprite = "course-CS162";
-    this.majorCardParent = ["majorECE", "majorCS"];
+    this.majorCardParent = ["majorECE", "majorCS", "majorARE", "majorBEE", "majorBIOE", "majorCE", "majorCEM", "majorCHE", "majorENVE", "majorESE", "majorIE", "majorME", "majorNSE", "majorRHP"];
   }
 }
 
@@ -274,7 +304,7 @@ export class CourseENGR100 extends Card {
     this.name = "courseENGR100";
     this.playerCardSprite = "course-ENGR100";
     this.opponentCardSprite = "course-ENGR100";
-    this.majorCardParent = ["majorECE", "majorCS"];
+    this.majorCardParent = ["majorECE", "majorCS", "majorARE", "majorBEE", "majorBIOE", "majorCE", "majorCEM", "majorCHE", "majorENVE", "majorESE", "majorIE", "majorME", "majorNSE", "majorRHP"];
   }
 }
 
@@ -284,7 +314,7 @@ export class CourseENGR102 extends Card {
     this.name = "courseENGR102";
     this.playerCardSprite = "course-ENGR102";
     this.opponentCardSprite = "course-ENGR102";
-    this.majorCardParent = ["majorECE", "majorCS"];
+    this.majorCardParent = ["majorECE", "majorCS", "majorARE", "majorBEE", "majorBIOE", "majorCE", "majorCEM", "majorCHE", "majorENVE", "majorESE", "majorIE", "majorME", "majorNSE", "majorRHP"];
   }
 }
 
@@ -294,7 +324,17 @@ export class CourseENGR103 extends Card {
     this.name = "courseENGR103";
     this.playerCardSprite = "course-ENGR103";
     this.opponentCardSprite = "course-ENGR103";
-    this.majorCardParent = ["majorECE", "majorCS"];
+    this.majorCardParent = ["majorECE", "majorCS", "majorARE", "majorBEE", "majorBIOE", "majorCE", "majorCEM", "majorCHE", "majorENVE", "majorESE", "majorIE", "majorME", "majorNSE", "majorRHP"];
+  }
+}
+
+export class CourseWR121 extends Card {
+  constructor(scene) {
+    super(scene);
+    this.name = "courseWR121";
+    this.playerCardSprite = "course-WR121";
+    this.opponentCardSprite = "course-WR121";
+    this.majorCardParent = ["majorECE", "majorCS", "majorARE", "majorBEE", "majorBIOE", "majorCE", "majorCEM", "majorCHE", "majorENVE", "majorESE", "majorIE", "majorME", "majorNSE", "majorRHP"];
   }
 }
 

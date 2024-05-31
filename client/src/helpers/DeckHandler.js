@@ -66,6 +66,7 @@ import {
 	CourseCHE411,
 	CourseCHE443,
 	CourseCHE461,
+	CourseMTH231,
 	CourseCS46X,
 	CourseCS261,
 	CourseCS290,
@@ -164,11 +165,14 @@ import {
 	CourseRHPNSE481,
 	CourseRHPNSE483,
 	CourseRHPNSE488,
+	CourseCH121,
+	CourseCOMM111,
 	CourseCS161,
 	CourseCS162,
 	CourseENGR100,
 	CourseENGR102,
 	CourseENGR103,
+	courseWR121,
 } from "./cards/CourseCard";
 import DebtCard from "./cards/DebtCard";
 import { MajorCard } from "./cards/MajorCard";
@@ -278,6 +282,7 @@ export default class DeckHandler {
 		courseCHE443: new CourseCHE443(scene),
 		courseCHE461: new CourseCHE461(scene),
 		// CS courses
+		courseMTH231: new CourseMTH231(scene),
         courseCS46X: new CourseCS46X(scene),
         courseCS261: new CourseCS261(scene),
         courseCS290: new CourseCS290(scene),
@@ -384,11 +389,14 @@ export default class DeckHandler {
 		courseRHPNSE483: new CourseRHPNSE483(scene),
 		courseRHPNSE488: new CourseRHPNSE488(scene),
 		// BACC courses
+		courseCH121: new CourseCH121(scene),
+        courseCOMM111: new CourseCOMM111(scene),
         courseCS161: new CourseCS161(scene),
         courseCS162: new CourseCS162(scene),
         courseENGR100: new CourseENGR100(scene),
         courseENGR102: new CourseENGR102(scene),
         courseENGR103: new CourseENGR103(scene),
+		courseWR121: new CourseWR121(scene),
 
         // major cards
         majorARE: new MajorARE(scene),

@@ -116,30 +116,31 @@ export default class Game extends Phaser.Scene {
 	this.load.image("course-CHE443", "src/assets/CourseCard/CHE/CHE-443.png");
 	this.load.image("course-CHE461", "src/assets/CourseCard/CHE/CHE-461.png");
 	// -- CS courses
-	this.load.image("course-CS46X", "src/assets/CourseCard/CS/CS-46X.jpg");
-	this.load.image("course-CS261", "src/assets/CourseCard/CS/CS-261.jpg");
-	this.load.image("course-CS290", "src/assets/CourseCard/CS/CS-290.jpg");
-	this.load.image("course-CS344", "src/assets/CourseCard/CS/CS-344.jpg");
-	this.load.image("course-CS361", "src/assets/CourseCard/CS/CS-361.jpg");
-	this.load.image("course-CS362", "src/assets/CourseCard/CS/CS-362.jpg");
-	this.load.image("course-CS381", "src/assets/CourseCard/CS/CS-381.jpg");
-	this.load.image("course-CS391", "src/assets/CourseCard/CS/CS-391.jpg");
-	this.load.image("course-CS444", "src/assets/CourseCard/CS/CS-444.jpg");
-	this.load.image("course-CS475", "src/assets/CourseCard/CS/CS-475.jpg");
+	this.load.image("course-MTH231", "src/assets/CourseCard/CS/MTH-231.png");
+	this.load.image("course-CS46X", "src/assets/CourseCard/CS/CS-46X.png");
+	this.load.image("course-CS261", "src/assets/CourseCard/CS/CS-261.png");
+	this.load.image("course-CS290", "src/assets/CourseCard/CS/CS-290.png");
+	this.load.image("course-CS344", "src/assets/CourseCard/CS/CS-344.png");
+	this.load.image("course-CS361", "src/assets/CourseCard/CS/CS-361.png");
+	this.load.image("course-CS362", "src/assets/CourseCard/CS/CS-362.png");
+	this.load.image("course-CS381", "src/assets/CourseCard/CS/CS-381.png");
+	this.load.image("course-CS391", "src/assets/CourseCard/CS/CS-391.png");
+	this.load.image("course-CS444", "src/assets/CourseCard/CS/CS-444.png");
+	this.load.image("course-CS475", "src/assets/CourseCard/CS/CS-475.png");
 	// -- ECE courses
-	this.load.image("course-CHE444", "src/assets/CourseCard/ECE/CHE-444.jpg");
-	this.load.image("course-CHE499", "src/assets/CourseCard/ECE/CHE-499.jpg");
-	this.load.image("course-ECE271", "src/assets/CourseCard/ECE/ECE-271.jpg");
-	this.load.image("course-ECE322", "src/assets/CourseCard/ECE/ECE-322.jpg");
-	this.load.image("course-ECE341", "src/assets/CourseCard/ECE/ECE-341.jpg");
-	this.load.image("course-ECE351", "src/assets/CourseCard/ECE/ECE-351.jpg");
-	this.load.image("course-ECE391", "src/assets/CourseCard/ECE/ECE-391.jpg");
-	this.load.image("course-ENGR201", "src/assets/CourseCard/ECE/ENGR-201.jpg");
-	this.load.image("course-ENGR202", "src/assets/CourseCard/ECE/ENGR-202.jpg");
-	this.load.image("course-ENGR203", "src/assets/CourseCard/ECE/ENGR-203.jpg");
-	this.load.image("course-PH211", "src/assets/CourseCard/ECE/PH-211.jpg");
-	this.load.image("course-PH212", "src/assets/CourseCard/ECE/PH-212.jpg");
-	this.load.image("course-PH481", "src/assets/CourseCard/ECE/PH-481.jpg");
+	this.load.image("course-CHE444", "src/assets/CourseCard/ECE/CHE-444.png");
+	this.load.image("course-CHE499", "src/assets/CourseCard/ECE/CHE-499.png");
+	this.load.image("course-ECE271", "src/assets/CourseCard/ECE/ECE-271.png");
+	this.load.image("course-ECE322", "src/assets/CourseCard/ECE/ECE-322.png");
+	this.load.image("course-ECE341", "src/assets/CourseCard/ECE/ECE-341.png");
+	this.load.image("course-ECE351", "src/assets/CourseCard/ECE/ECE-351.png");
+	this.load.image("course-ECE391", "src/assets/CourseCard/ECE/ECE-391.png");
+	this.load.image("course-ENGR201", "src/assets/CourseCard/ECE/ENGR-201.png");
+	this.load.image("course-ENGR202", "src/assets/CourseCard/ECE/ENGR-202.png");
+	this.load.image("course-ENGR203", "src/assets/CourseCard/ECE/ENGR-203.png");
+	this.load.image("course-PH211", "src/assets/CourseCard/ECE/PH-211.png");
+	this.load.image("course-PH212", "src/assets/CourseCard/ECE/PH-212.png");
+	this.load.image("course-PH481", "src/assets/CourseCard/ECE/PH-481.png");
 	// -- ENVE courses
 	this.load.image("course-ENVECE313", "src/assets/CourseCard/ENVE/CE-313.png");
 	this.load.image("course-CHE311", "src/assets/CourseCard/ENVE/CHE-311.png");
@@ -222,11 +223,14 @@ export default class Game extends Phaser.Scene {
 	this.load.image("course-RHP-NSE483", "src/assets/CourseCard/RHP/RHP-NSE-483.png");
 	this.load.image("course-RHP-NSE488", "src/assets/CourseCard/RHP/RHP-NSE-488.png");
 	// -- "multi" courses
-	this.load.image("course-CS161", "src/assets/CourseCard/CS-161.jpg");
-	this.load.image("course-CS162", "src/assets/CourseCard/CS-162.jpg");
-	this.load.image("course-ENGR100", "src/assets/CourseCard/ENGR-100.jpg");
-	this.load.image("course-ENGR102", "src/assets/CourseCard/ENGR-102.jpg");
-	this.load.image("course-ENGR103", "src/assets/CourseCard/ENGR-103.jpg");
+	this.load.image("course-CH121", "src/assets/CourseCard/CH-121.png");
+	this.load.image("course-COMM111", "src/assets/CourseCard/COMM-111.png");
+	this.load.image("course-CS161", "src/assets/CourseCard/CS-161.png");
+	this.load.image("course-CS162", "src/assets/CourseCard/CS-162.png");
+	this.load.image("course-ENGR100", "src/assets/CourseCard/ENGR-100.png");
+	this.load.image("course-ENGR102", "src/assets/CourseCard/ENGR-102.png");
+	this.load.image("course-ENGR103", "src/assets/CourseCard/ENGR-103.png");
+	this.load.image("course-WR121", "src/assets/CourseCard/WR-121.png");
 
 	// loading circle animation
 	this.load.image("loading", "src/assets/loading.png");
