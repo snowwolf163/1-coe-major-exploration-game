@@ -370,7 +370,7 @@ export class CourseENGR103 extends Card {
     super(scene);
     this.name = "courseENGR103";
     this.displayName = "ENGR103 - Engineering Computation and Algorithmic Thinking";
-    this.displayDescription = "In a new alternative to CS161"
+    this.displayDescription = "In a new modernized replacement to CS161, learn programming as it applies to all engineers in either the mainstream and accessible Python or the in-depth closer to hardware C++ language."
     this.playerCardSprite = "course-ENGR103";
     this.opponentCardSprite = "course-ENGR103";
     this.majorCardParent = ["majorECE", "majorCS", "majorARE", "majorBEE", "majorBIOE", "majorCE", "majorCEM", "majorCHE", "majorENVE", "majorESE", "majorIE", "majorME", "majorNSE", "majorRHP"];
